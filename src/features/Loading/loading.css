@@ -1,0 +1,25 @@
+ .loading {
+    width: 20px;
+    height: 3px;
+    background-color: #FB2E86;
+    animation: load 1s linear;
+}
+
+@keyframes load {
+    0%{
+        width: 20px;
+        height: 4px;
+    }
+    50%{
+        width: 250px;
+        height: 4px;
+        border-radius: 5px;
+    }
+    100%{
+        width: 550px;
+        height: 4px;
+        border-radius: 5px;
+    }
+} 
+
+

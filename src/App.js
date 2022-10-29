@@ -1,23 +1,28 @@
-import logo from './logo.svg';
+import Header from './Layout/Header/Header';
+// import Loading from 'features/Loading/Loading';
+// import { lazy, Suspense } from 'react';
+
 import './App.css';
+import { Route, Routes } from 'react-router-dom';
+import { publicRoutes } from 'routes';
+import Footer from 'Layout/Footer/Footer';
+// const Notfound = lazy(() => import('./components/Notfound/Notfound'))
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+       <Header />
+
+       <div className='app-body'>
+          <Routes>
+            {publicRoutes.map((route, index) => {
+              const Page = route.component;
+              return <Route key={index} path={route.path} element={<Page />} />
+            }) }
+          </Routes>
+       </div>
+
+       <Footer />
     </div>
   );
 }

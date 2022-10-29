@@ -1,0 +1,43 @@
+.home {
+    background-color: #F2F0FF;
+    position: relative;
+    display: flex;
+    justify-content: space-around;
+    padding: 25px 0;
+    &-left{
+        display: flex;
+        width: 60%;
+        & img{
+         transform: translateY(-30px);
+        }
+        & div {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+        & button {
+            width: 120px;
+            height: 40px;
+            background-color: #FB2E86;
+            color: #fff;
+            border-radius: 3px;
+            list-style: none;
+            border: none;
+            cursor: pointer;
+        }
+    }
+}
+
+
+
+@media only screen and (max-width: 900px) {
+    .home {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        & img{
+            padding: 25px 0;
+        }
+    }
+}
