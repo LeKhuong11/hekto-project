@@ -82,7 +82,7 @@ function Header() {
               </Link>
             </div>
             <div className='header-menu'>
-              <NavLink to="/">Home</NavLink>
+              <NavLink to="/" end>Home</NavLink>
               <NavLink to="pages">Pages</NavLink>
               <NavLink to="products">Products</NavLink>
               <NavLink to="blog">Blog</NavLink>
@@ -100,7 +100,7 @@ function Header() {
         <div className='header-menu mobile'>
                 {renderMobile && 
                   <div>
-                    <NavLink to="/">Home</NavLink>
+                    <NavLink to="/" end>Home</NavLink>
                     <NavLink to="pages">Pages</NavLink>
                     <NavLink to="products">Products</NavLink>
                     <NavLink to="blog">Blog</NavLink>

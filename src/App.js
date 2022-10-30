@@ -12,15 +12,14 @@ function App() {
   return (
     <div className="App">
        <Header />
-
-       <div className='app-body'>
-          <Routes>
-            {publicRoutes.map((route, index) => {
-              const Page = route.component;
-              return <Route key={index} path={route.path} element={<Page />} />
-            }) }
-          </Routes>
-       </div>
+        <div className='app-body'>
+            <Routes>
+              {publicRoutes.map((route, index) => {
+                const Page = route.component;
+                return <Route key={index} path={route.path} element={<Page />} />
+              }) }
+            </Routes>
+        </div>
 
        <Footer />
     </div>
