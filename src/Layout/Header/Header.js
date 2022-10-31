@@ -83,10 +83,10 @@ function Header() {
             </div>
             <div className='header-menu'>
               <NavLink to="/" end>Home</NavLink>
-              <NavLink to="pages">Pages</NavLink>
               <NavLink to="products">Products</NavLink>
-              <NavLink to="blog">Blog</NavLink>
               <NavLink to="shop">Shop</NavLink>
+              <NavLink to="blog">Blog</NavLink>
+              <NavLink to="about">About</NavLink>
               <NavLink to="contact">Contact</NavLink>
             </div>
             <div className='header-search'>
@@ -101,10 +101,10 @@ function Header() {
                 {renderMobile && 
                   <div>
                     <NavLink to="/" end>Home</NavLink>
-                    <NavLink to="pages">Pages</NavLink>
                     <NavLink to="products">Products</NavLink>
-                    <NavLink to="blog">Blog</NavLink>
                     <NavLink to="shop">Shop</NavLink>
+                    <NavLink to="blog">Blog</NavLink>
+                    <NavLink to="about">About</NavLink>
                     <NavLink to="contact">Contact</NavLink>
                   </div>
                 }

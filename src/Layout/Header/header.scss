@@ -1,7 +1,9 @@
 .header {
     color: aliceblue;
     height: 115px;
-    position: relative;
+    background-color: #fff;
+    z-index: 999;
+    overflow: hidden;
 }
 .header-info {
     width: 100%;

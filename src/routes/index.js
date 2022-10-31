@@ -1,6 +1,6 @@
 import Notfound from 'components/Notfound/Notfound'
 import Home from 'page/Home/Home'
-import Pages from 'page/Pages/Pages'
+import About from 'page/About/About'
 import Products from 'page/Products/Products'
 import Blog from 'page/Blog/Blog'
 import Shop from 'page/Shop/Shop'
@@ -15,20 +15,20 @@ export const publicRoutes = [
         component: Home
     },
     {
-        path: 'pages',
-        component: Pages
-    },
-    {
         path: 'products',
         component: Products
+    },
+    {
+        path: 'shop',
+        component: Shop
     },
     {
         path: 'blog',
         component: Blog
     },
     {
-        path: 'shop',
-        component: Shop
+        path: 'about',
+        component: About
     },
     {
         path: 'contact',

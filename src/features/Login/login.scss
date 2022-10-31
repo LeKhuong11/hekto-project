@@ -3,27 +3,13 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 50px 0;
 }
-.signin-title {
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    background-color: #F6F5FF;
-    padding: 20px 0;
-    &>div {
-        width: 80%;
-    }
-    & h1{
-        margin: 10px 0;
-    }
-}
+
 .signin-link {
     display: flex;
     & a{
         text-decoration: none;
     }
-   
 }
 
 .signin-login {
@@ -60,12 +46,20 @@
             font-size: 15px;
             cursor: pointer;
             margin: 20px 0;
+            &:hover {
+                background-color: rgb(248, 2, 109);
+            }
         }
         & a {
             font-size: 14px;
             text-decoration: none;
             color: rgb(104, 103, 103);
+            &:hover {
+                color: black;
+                text-decoration: underline;
+            }
         }
+        
     }
    
 }

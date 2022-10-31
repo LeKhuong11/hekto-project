@@ -1,0 +1,14 @@
+.contact {
+    &-body {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        &-info{
+            display: flex;
+            width: 80%;
+            &>div {
+                width: 50%;
+            }
+        }
+    }
+}
