@@ -2,7 +2,7 @@
     width: 20px;
     height: 3px;
     background-color: #FB2E86;
-    animation: load 1s linear;
+    animation: load .5s linear;
 }
 
 @keyframes load {

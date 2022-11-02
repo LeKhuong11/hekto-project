@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import './header.scss'
 import { FaBars, FaEnvelope, FaPhoneAlt, FaRegHeart, FaSearch, FaShoppingCart, FaUser } from 'react-icons/fa';
-import Hekto from '../../image/Hekto.svg'
+import Hekto from 'image/Hekto.svg'
 import { Link, NavLink } from 'react-router-dom';
 
 const languages = [
@@ -27,6 +27,7 @@ const languages = [
 
 function Header() {
   const [renderMobile, setRenderMobile] = useState(false);
+  
   const handleChange = () => {
 
   }

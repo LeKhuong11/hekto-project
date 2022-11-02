@@ -1,8 +1,11 @@
+import HeaderPage from 'components/Header-page/HeaderPage'
 import React from 'react'
 
 function Shop() {
   return (
-    <div>This is Shop</div>
+    <div className='shop'>
+      <HeaderPage namePage="Shop Left Sidebar" />
+    </div>
   )
 }
 

@@ -1,17 +1,17 @@
 import React from 'react'
-import './about.scss'
-import '../../components/Button/button.scss'
-import Group from '../../image/about/Group.svg'
-import HeaderPage from 'components/Header-page/HeaderPage'
-import { Link } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 import Intro from './Intro'
-import trunk from '../../image/about/trunk.svg'
-import premium from '../../image/about/premium-quality.svg'
-import cashback from '../../image/about/cashback.svg'
-import support24h from '../../image/about/24-hours-support.svg'
-import person1 from '../../image/about/person1.svg'
-import person2 from '../../image/about/person2.svg'
-import person3 from '../../image/about/person3.svg'
+import './about.scss'
+import 'components/Button/button.scss'
+import Group from 'image/about/Group.svg'
+import HeaderPage from 'components/Header-page/HeaderPage'
+import trunk from 'image/about/trunk.svg'
+import premium from 'image/about/premium-quality.svg'
+import cashback from 'image/about/cashback.svg'
+import support24h from 'image/about/24-hours-support.svg'
+import person1 from 'image/about/person1.svg'
+import person2 from 'image/about/person2.svg'
+import person3 from 'image/about/person3.svg'
 
 const listImg = [
   {
@@ -50,7 +50,10 @@ const listImg = [
     }];
 
 function About() {
-  
+  const navigate = useNavigate();
+  const handleClickTo = () => {
+    navigate("/contact")
+  }
   return (
     <div className='about'>
       <HeaderPage namePage="About Us" />
@@ -60,9 +63,7 @@ function About() {
           <div>
             <h2>Know About Our Ecomerce Bussiness, History</h2>
             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-            <button className='button'>
-              <Link to="../contact">Contact US</Link>
-            </button>
+            <button className='button' onClick={handleClickTo}>Contact US</button>
           </div>
         </div>
         <h1>Our Features</h1>

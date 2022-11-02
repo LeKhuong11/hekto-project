@@ -1,8 +1,11 @@
+import HeaderPage from 'components/Header-page/HeaderPage'
 import React from 'react'
 
 function Cart() {
   return (
-    <div>This is Cart</div>
+    <div className='cart'>
+      <HeaderPage namePage="Cart" />
+    </div>
   )
 }
 

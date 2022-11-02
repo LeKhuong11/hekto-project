@@ -1,6 +1,6 @@
 import React from 'react'
 import { FaFacebook, FaGithub, FaTwitter } from 'react-icons/fa'
-import Hekto from '../../image/Hekto.svg'
+import Hekto from 'image/Hekto.svg'
 import './footer.scss'
 
 function Footer() {

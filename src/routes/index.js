@@ -1,16 +1,18 @@
-import Notfound from 'components/Notfound/Notfound'
-import Home from 'page/Home/Home'
-import About from 'page/About/About'
-import Products from 'page/Products/Products'
-import Blog from 'page/Blog/Blog'
-import Shop from 'page/Shop/Shop'
-import Contact from 'page/Contact/Contact'
-import Signin from 'features/Login/Signin/Signin'
-import Wishlist from 'features/Wishlist/Wishlist'
-import Cart from 'features/Cart/Cart'
+import { lazy } from 'react'
+const Contact = lazy(() => import('page/Contact/Contact'));
+const Signin = lazy(() => import('features/Login/Signin/Signin'));
+const About = lazy(() => import('page/About/About'));
+const Notfound = lazy(() => import('components/Notfound/Notfound'));
+const Home = lazy(() => import('page/Home/Home'));
+const Products = lazy(() => import('page/Products/Products'));
+const Blog = lazy(() => import('page/Blog/Blog'));
+const Shop = lazy(() => import('page/Shop/Shop'));
+const Wishlist = lazy(() => import('features/Wishlist/Wishlist'));
+const Cart = lazy(() => import('features/Cart/Cart'));
+
 
 export const publicRoutes = [
-    {
+    {                         
         path: '/',
         component: Home
     },

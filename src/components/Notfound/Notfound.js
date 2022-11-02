@@ -1,8 +1,8 @@
 import HeaderPage from 'components/Header-page/HeaderPage'
 import React from 'react'
 import { Link } from 'react-router-dom'
-import '../../components/Button/button.scss'
-import NotFound from '../../image/NotFound.svg' 
+import 'components/Button/button.scss'
+import NotFound from 'image/NotFound.svg' 
 
 function Notfound() {
   return (

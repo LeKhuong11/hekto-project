@@ -7,6 +7,12 @@
     padding: 20px 0;
     &>div {
         width: 80%;
+        & .signin-link {
+            display: flex;
+            & a {
+                text-decoration: none;
+            }
+        }
     }
     & h1{
         margin: 10px 0;

@@ -1,8 +1,11 @@
+import HeaderPage from 'components/Header-page/HeaderPage'
 import React from 'react'
 
 function Blog() {
   return (
-    <div>This is Blog</div>
+    <div className='blog'>
+      <HeaderPage namePage="Blog" />
+    </div>
   )
 }
 

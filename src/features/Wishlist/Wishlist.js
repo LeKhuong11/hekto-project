@@ -1,8 +1,11 @@
+import HeaderPage from 'components/Header-page/HeaderPage'
 import React from 'react'
 
 function Wishlist() {
   return (
-    <div>This is Wishlist</div>
+    <div className='wishlist'>
+      <HeaderPage namePage="Wish List" />
+    </div>
   )
 }
 
