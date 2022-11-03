@@ -3,6 +3,7 @@
     height: 3px;
     background-color: #FB2E86;
     animation: load .5s linear;
+    margin-top: 106px;
 }
 
 @keyframes load {

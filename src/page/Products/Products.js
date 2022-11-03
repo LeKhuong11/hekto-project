@@ -4,8 +4,10 @@ import Char1 from 'image/product/image9.svg'
 import Char2 from 'image/product/image10.svg'
 import Char3 from 'image/product/image11.svg'
 import Char4 from 'image/product/image12.svg'
+import Color from 'image/color.svg'
 import Product from './Product'
 import './product.scss'
+import Introduce from 'components/introduce/Introduce'
 
 const productList = [
   {
@@ -60,6 +62,7 @@ const productList = [
 
 
 function Products() {
+  document.title = "Products"
   return (
     <div className='products'>
       <HeaderPage namePage="Shop Grid Default" />
@@ -68,12 +71,14 @@ function Products() {
             <h3>Ecommerce Acceories & Fashon item</h3>
             <p>About 9.620 result (0.62 seconds)</p>
             <div>
-              {productList.map(item => (
-                <Product product={item} />
+              {productList.map((item, index) => (
+                <Product key={index} product={item} color={Color} />
               ))}
             </div>
           </div>
-          <div></div>
+          <div>
+            <Introduce />
+          </div>
       </div>
     </div>
   )

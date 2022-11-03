@@ -1,9 +1,14 @@
 .header {
     color: aliceblue;
-    height: 115px;
+    height: 105px;
     background-color: #fff;
     z-index: 999;
     overflow: hidden;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    box-shadow: rgba(129, 129, 138, 0.2) 0px 7px 29px 0px;
 }
 .header-info {
     width: 100%;

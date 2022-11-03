@@ -3,6 +3,7 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import 'components/Button/button.scss'
 import NotFound from 'image/NotFound.svg' 
+import Introduce from 'components/introduce/Introduce'
 
 function Notfound() {
   return (
@@ -12,6 +13,9 @@ function Notfound() {
         <button className='button'>
           <Link to="/">Back To Home</Link>
         </button>
+        <div>
+          <Introduce />  
+        </div>
     </div>
   )
 }

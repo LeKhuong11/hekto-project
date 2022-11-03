@@ -1,13 +1,13 @@
-import Header from './Layout/Header/Header';
-import Loading from 'features/Loading/Loading';
 import { Suspense } from 'react';
-
-import './App.css';
 import { Route, Routes } from 'react-router-dom';
 import { publicRoutes } from 'routes';
+import './App.css';
+import Header from './Layout/Header/Header';
 import Footer from 'Layout/Footer/Footer';
+import Loading from 'features/Loading/Loading';
 
 function App() {
+  
   return (
     <div className="App">
        <Header />

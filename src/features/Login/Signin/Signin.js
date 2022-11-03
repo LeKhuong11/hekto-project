@@ -2,6 +2,7 @@ import React from 'react'
 import '../login.scss'
 import { Link } from 'react-router-dom'
 import HeaderPage from 'components/Header-page/HeaderPage'
+import Introduce from 'components/introduce/Introduce'
 
 function Signin() {
   return (
@@ -19,6 +20,9 @@ function Signin() {
                 <Link to='create-account'>Don't have an Account?Create Account?</Link>
               </form>
             </div>
+          </div>
+          <div>
+            <Introduce />
           </div>
     </div>
   )
