@@ -9,6 +9,7 @@ const Blog = lazy(() => import('page/Blog/Blog'));
 const Shop = lazy(() => import('page/Shop/Shop'));
 const Wishlist = lazy(() => import('features/Wishlist/Wishlist'));
 const Cart = lazy(() => import('features/Cart/Cart'));
+const Detail = lazy(() => import('page/Detail/Detail'));
 
 
 export const publicRoutes = [
@@ -47,6 +48,10 @@ export const publicRoutes = [
     {
         path: 'cart',
         component: Cart
+    },
+    {
+        path: 'products/detail/:id',
+        component: Detail
     },
     {
         path: '*',

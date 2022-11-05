@@ -1,68 +1,23 @@
-import React from 'react'
-import HeaderPage from 'components/Header-page/HeaderPage'
-import Char1 from 'image/product/image9.svg'
-import Char2 from 'image/product/image10.svg'
-import Char3 from 'image/product/image11.svg'
-import Char4 from 'image/product/image12.svg'
+import React, { useEffect, useState } from 'react'
+import { Link } from 'react-router-dom'
+import { useSelector } from 'react-redux'
 import Color from 'image/color.svg'
+import HeaderPage from 'components/Header-page/HeaderPage'
 import Product from './Product'
-import './product.scss'
 import Introduce from 'components/introduce/Introduce'
-
-const productList = [
-  {
-    name: 'Vel elit euismod',
-    img: Char1,
-    price: 26.000,
-    priceOld: 42.000
-  },
-  {
-    name: 'Ultricies condimentum imperdiet',
-    img: Char2,
-    price: 26.000,
-    priceOld: 42.000
-  },
-  {
-    name: 'Vitae suspendisse sed',
-    img: Char3,
-    price: 26.000,
-    priceOld: 42.000
-  },
-  {
-    name: 'Sed at fermentum',
-    img: Char4,
-    price: 26.000,
-    priceOld: 42.000
-  },
-  {
-    name: 'Vel elit euismod',
-    img: Char1,
-    price: 26.000,
-    priceOld: 42.000
-  },
-  {
-    name: 'Ultricies condimentum imperdiet',
-    img: Char2,
-    price: 26.000,
-    priceOld: 42.000
-  },
-  {
-    name: 'Vitae suspendisse sed',
-    img: Char3,
-    price: 26.000,
-    priceOld: 42.000
-  },
-  {
-    name: 'Sed at fermentum',
-    img: Char4,
-    price: 26.000,
-    priceOld: 42.000
-  },
-]
+import './product.scss'
 
 
-function Products() {
+ function Products() {
   document.title = "Products"
+  
+  const data = useSelector(state => state.fetchApi)
+  const [product, setProduct] = useState(data.list);
+
+  useEffect(() => {
+    setProduct(data.list)
+  }, [data])
+
   return (
     <div className='products'>
       <HeaderPage namePage="Shop Grid Default" />
@@ -71,8 +26,10 @@ function Products() {
             <h3>Ecommerce Acceories & Fashon item</h3>
             <p>About 9.620 result (0.62 seconds)</p>
             <div>
-              {productList.map((item, index) => (
-                <Product key={index} product={item} color={Color} />
+              {product && product.map((item, index) => (
+                <Link key={index} to={`detail/${item._id}`}>
+                  <Product product={item} color={Color} />
+                </Link>
               ))}
             </div>
           </div>

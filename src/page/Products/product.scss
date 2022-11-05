@@ -27,6 +27,15 @@
     transform: scale(1);
     transition: transform .2s linear;
     box-shadow: rgba(66, 66, 66, 0.1) 0px 4px 12px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    &-image {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 65%;
+    }
     &-icon {
         position: absolute; 
         top: 45%;
@@ -52,9 +61,6 @@
             transform: translateX(0);
             transition: transform .2s linear;
         }
-    }
-    &>img {
-        height: 65%;
     }
     &-info {
         height: 35%;

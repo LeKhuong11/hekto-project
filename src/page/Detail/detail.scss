@@ -1,0 +1,38 @@
+.detail {
+    color: #0D134E;
+    &-body {
+        width: 70%;
+        box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+        margin: auto;
+        display: flex;
+        
+        &-image{
+            width: 50%;
+            display: flex;
+            &>div {
+                display: flex;
+                flex-direction: column;
+            }
+        }
+
+        &-info {
+
+            & h2 {
+                margin: 10px;
+            }
+            & h4 {
+                margin: 5px;
+            }
+            & div {
+                &>p{
+                    font-weight: 600;
+                    margin: 0 7px;
+                }  
+            }
+            & button {
+                width: 200px;
+                border-radius: 20px;
+            }
+        }
+    }
+}
