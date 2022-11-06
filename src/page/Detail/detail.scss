@@ -3,36 +3,59 @@
     &-body {
         width: 70%;
         box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
-        margin: auto;
+        margin: 60px auto;
         display: flex;
+        padding: 15px;
         
         &-image{
-            width: 50%;
+            width: 80%;
             display: flex;
+            justify-content: center;
+            align-items: center;
             &>div {
                 display: flex;
                 flex-direction: column;
+                & img {
+                    margin: 10px 0;
+                }
             }
         }
 
         &-info {
 
             & h2 {
-                margin: 10px;
+                margin: 10px 0 ;
             }
             & h4 {
-                margin: 5px;
+                margin: 7px 10px 5px 0;
             }
             & div {
+                display: flex;
+                align-items: center;
                 &>p{
-                    font-weight: 600;
                     margin: 0 7px;
                 }  
+                & svg {
+                    padding: 0 5px;
+                }
             }
             & button {
                 width: 200px;
                 border-radius: 20px;
             }
+            & .button {
+                & svg {
+                    padding: 0 10px;
+                }
+            }
+        }
+    }
+
+    &-description {
+        display: flex;
+        justify-content: center;
+        &>div {
+            width: 80%;
         }
     }
 }

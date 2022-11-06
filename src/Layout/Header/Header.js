@@ -1,8 +1,9 @@
 import React, { useState } from 'react'
-import './header.scss'
+import { useSelector } from 'react-redux'
+import { Link, NavLink } from 'react-router-dom';
 import { FaBars, FaEnvelope, FaPhoneAlt, FaRegHeart, FaSearch, FaShoppingCart, FaUser } from 'react-icons/fa';
 import Hekto from 'image/Hekto.svg'
-import { Link, NavLink } from 'react-router-dom';
+import './header.scss'
 
 const languages = [
   {
@@ -28,6 +29,10 @@ const languages = [
 function Header() {
   const [renderMobile, setRenderMobile] = useState(false);
   
+  //get user name
+  const user = useSelector(state => state.user)
+  const [userName, setUserName] = useState(user.name)
+
   const handleChange = () => {
 
   }
@@ -58,7 +63,7 @@ function Header() {
               </div>
               <div>
                  <Link to="login">
-                  <p style={{padding: 2}}>Login</p>
+                  <p style={{padding: 2}}>{user.user ? userName : "Login"}</p>
                   <FaUser />
                  </Link>
               </div>

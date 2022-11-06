@@ -1,25 +1,25 @@
 import { Suspense, useEffect } from 'react';
 import { Route, Routes } from 'react-router-dom';
 import { publicRoutes } from 'routes';
-import './App.css';
 import Header from './Layout/Header/Header';
 import Footer from 'Layout/Footer/Footer';
+import { useDispatch } from 'react-redux'
 import Loading from 'features/Loading/Loading';
-import { fetchApiAction } from 'action/fetchApiAction';
-import { useDispatch} from 'react-redux'
+import { data } from 'redux/dataSlice';
+import './App.css';
 
 
 function App() {
   const dispatch = useDispatch();
-
+  
   useEffect(() => {
     fetch('https://fe21-db.herokuapp.com/hekto')
     .then(response => {
       return response.json();
     }) 
-    .then(async (data) => {
-      const action = fetchApiAction(data)
-      dispatch(action)
+    .then(async (dataList) => {
+      
+      dispatch(data(dataList))
       })
     }, [dispatch])
     

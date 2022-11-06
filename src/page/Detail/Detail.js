@@ -1,30 +1,48 @@
-import React from 'react'
-import { useParams } from 'react-router-dom'
+import { useNavigate, useParams } from 'react-router-dom'
+import { useState, useEffect } from 'react'
 import { useSelector } from 'react-redux'
-import HeaderPage from 'components/Header-page/HeaderPage'
 import { FaFacebook, FaGithub, FaRegHeart, FaStar, FaTwitter } from 'react-icons/fa'
+import Introduce from 'components/introduce/Introduce'
+import { Action } from 'components/OrderSusscess/OrderSusscess'
+import HeaderPage from 'components/Header-page/HeaderPage'
 import './detail.scss'
 import 'components/Button/button.scss'
 
 function Detail() {
-  const data = useSelector(state => state.fetchApi)
-  const { list } = data;  
+  const userCheck = useSelector(state => state.user)
+  console.log(userCheck);
+  const navigate = useNavigate();
+  //alert order susscess
+  const [orderSusscess, setOrderSusscess] = useState(false) 
+  const [product, setProduct] = useState([]);
   
-  //get ip from product list
+  //get id in params
   const { id } = useParams();
-  
-  const productDetail = list.filter(item => {
-    return item._id.includes(id)
-  })
 
-  //render star
-  const star = []
-  for(let i = 0; i < productDetail[0].star; i++) {
-    star.push(<FaStar key={i} color="#FFC416"/>)
+  useEffect(() => {
+    fetch(`https://fe21-db.herokuapp.com/hekto/${id}`)
+      .then(res => {
+        return res.json()
+      })
+      .then(data => {
+        setProduct(data)
+      })
+  }, [id])
+
+  //set star
+  const star = [];
+  if(product.star) {
+    for(let i = 0; i < product.star; i++){
+      star.push(<FaStar key={i} color="#FFC416"/>)
+    }
   }
-
+  
+  //butotn add to cart
   const addToCart = (id) => {
-    console.log(id);
+    if(userCheck.user) 
+      setOrderSusscess(true)
+    else 
+      navigate("/login")
   }
 
   return (
@@ -33,34 +51,34 @@ function Detail() {
         <div className='detail-body'>
             <div className='detail-body-image'>
               <div>
-                <img width={100} src={productDetail[0].img} alt='' />
-                <img width={100} src={productDetail[0].img} alt='' />
-                <img width={100} src={productDetail[0].img} alt='' />
+                <img width={100} src={product.img} alt='' />
+                <img width={100} src={product.img} alt='' />
+                <img width={100} src={product.img} alt='' />
               </div>
-              <img width={300} src={productDetail[0].img} alt='' />
+              <img width={300} src={product.img} alt='' />
             </div>
             <div className='detail-body-info'>
-              <h2>{productDetail[0].name}</h2>
-              {star.map(item => (
+              <h2>{product.name}</h2>
+              {star ? star.map(item => (
                 item
-              ))}
-              <div style={{display: 'flex'}}>
-                <p>${productDetail[0].price}.000</p>
-                <p style={{textDecoration: 'line-through', color: '#FB2E86'}}>${productDetail[0].price}.000</p>
+              )): <FaStar color="#FFC416"/>}
+              <div>
+                <h4>${product.price}.000</h4>
+                <h4 style={{textDecoration: 'line-through', color: '#FB2E86'}}>${product.price}.000</h4>
               </div>
               <h4>Color</h4>
               <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris tellus porttitor purus, et volutpat sit.</p>
-              <button className='button' onClick={() => addToCart(productDetail[0]._id)}>
+              <button className='button' onClick={() => addToCart(product._id)}>
                 Add To Cart 
                 <FaRegHeart />
               </button>
-              <div style={{display: 'flex'}}>
+              <div>
                 <h4>Categories: </h4>
-                <p>{productDetail[0].categories}</p>
+                <p>{product.categories}</p>
               </div> 
               <div>
                 <h4>Share: </h4>
-                <div style={{display: 'flex'}}>
+                <div style={{display: 'flex', alignItems: 'center'}}>
                   <FaFacebook />
                   <FaGithub />
                   <FaTwitter />
@@ -68,6 +86,16 @@ function Detail() {
               </div>
             </div>
         </div>
+        <div className='detail-description'>
+          <div>
+              <h2>Description</h2>
+              <h3>Varius tempor.</h3>
+              <p>{product.description}</p>
+          </div>
+        </div>
+        <Introduce />
+
+        {orderSusscess && <Action />}
     </div>
   )
 }

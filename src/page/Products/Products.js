@@ -11,11 +11,11 @@ import './product.scss'
  function Products() {
   document.title = "Products"
   
-  const data = useSelector(state => state.fetchApi)
-  const [product, setProduct] = useState(data.list);
+  const data = useSelector(state => state.data)
+  const [product, setProduct] = useState(data.data);
 
   useEffect(() => {
-    setProduct(data.list)
+    setProduct(data.data)
   }, [data])
 
   return (
