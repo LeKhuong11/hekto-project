@@ -54,6 +54,10 @@ export const publicRoutes = [
         component: Detail
     },
     {
+        path: 'shop/detail/:id',
+        component: Detail
+    },
+    {
         path: '*',
         component: Notfound
     },
