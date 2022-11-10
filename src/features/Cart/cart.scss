@@ -1,0 +1,174 @@
+%box {
+    width: 90%;
+    height: 300px;
+    background-color: #f6f6fc;
+    border-radius: 4px;
+}
+.cart {
+    &-body {
+        display: flex;
+        justify-content: center;
+        margin: 50px 0;
+        & h3 {
+            color: #1D3178;
+        }
+        &>div {
+            display: flex;
+            width: 80%;
+            & .cart-body-products {
+                width: 60%;
+                
+                & table {
+                    border-collapse: collapse;
+                  
+                    & thead {
+
+                        & th:nth-child(1) {
+                            text-align: left;
+                        }
+                        & th {
+                            text-align: center;
+                        }
+                    }
+                    & tbody {   
+                    
+                        & h4 {
+                            margin: 0;
+                        } 
+                        & p {
+                            font-size: 12px;
+                            margin: 0;
+                            color: rgb(138, 136, 136);
+                            font-weight: 200;
+                        }
+                        & td:nth-child(1) {
+                            width: 35%;
+                        }
+                        & td {
+                            border-bottom: 1px solid rgb(187, 186, 186);
+                            padding: 0;
+                            width: 300px;
+                            color: #15245E;
+                            font-weight: 600;
+                            text-align: center;
+                            font-size: 14px;
+                            & img {
+                                margin: 0 8px 0 0 ;
+                            }
+                            &>div {
+                                display: flex;
+                                align-items: center;
+                                width: 100%;
+                            }
+                            & input[type="submit"] {
+                                background-color: rgb(59, 134, 231);
+                                cursor: pointer;
+                                width: 55px;
+                                height: 24px;
+                                border: none;
+                                color: antiquewhite;
+                                border-radius: 5px;
+                            }
+                        }
+                        & td:last-child {
+                            width: 100px
+                        }
+
+                        & tr:last-child {
+                            & td {
+                                border: none;
+                            }
+                        }
+                    }
+                }
+            }   
+        }
+        
+    }
+
+    &-totals-shipping {
+        width: 40%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        & table {
+            width: 95%;
+
+            & thead {
+                height: 29px;
+                margin: 19px 0;
+                text-align: center;
+            }
+            & tbody {
+
+                & td {
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                }
+            }
+        }
+        & .totals {
+            @extend %box;
+
+            &>div {
+                margin-top: 15px;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                
+                &>div {
+                    display: flex; 
+                    justify-content: space-between;
+                    border-bottom: 2px solid rgb(201, 200, 200);
+                    padding: 10px 0;
+                    margin:     5px 0 20px;
+                    width: 80%;
+                    & h4, p {
+                        margin: 5px 0;
+                        color: #1D3178;
+                        font-weight: 600;
+                    }
+                }
+                & input{
+                    background-color: #19D16F;
+                }
+                &>button {
+                    width: 80%;
+                    background-color: #19D16F;
+                    color: #fff;
+                    border-radius: 5px;
+                    cursor: pointer;
+                    border: none;
+                    height: 50px;
+                    margin-top: 23px;
+                }
+            }
+        }
+
+        & .shipping {
+            @extend %box;
+
+            &>div {
+                & div {
+                    width: 100%;
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                    margin-top: 20px;
+                    & input {
+                        width: 80%;
+                        height: 47px;
+                        border: none;
+                        outline-style: none;
+                        border-bottom: 1.5px solid rgb(179, 177, 177);
+                        background-color: #f6f6fc;
+
+                    }
+                }
+               
+            }
+        }
+    }
+}

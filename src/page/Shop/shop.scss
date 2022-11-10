@@ -28,7 +28,8 @@
             }
             & .show-product-list {
                 width: 80%;
-                & a {
+                &>div {
+                    cursor: pointer;
                     text-decoration: none;
                     & .shop-products {
                         width: 100%;

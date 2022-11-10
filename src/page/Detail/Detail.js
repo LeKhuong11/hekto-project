@@ -1,17 +1,18 @@
 import { useNavigate, useParams } from 'react-router-dom'
 import { useState, useEffect } from 'react'
-import { useSelector } from 'react-redux'
+import { useSelector, useDispatch } from 'react-redux'
 import { FaFacebook, FaGithub, FaRegHeart, FaStar, FaTwitter } from 'react-icons/fa'
 import Introduce from 'components/introduce/Introduce'
 import { Action } from 'components/OrderSusscess/OrderSusscess'
 import HeaderPage from 'components/Header-page/HeaderPage'
 import './detail.scss'
 import 'components/Button/button.scss'
+import { cart } from 'redux/cartSlice'
 
 function Detail() {
   const userCheck = useSelector(state => state.user)
-  console.log(userCheck);
   const navigate = useNavigate();
+  const dispatch = useDispatch();
   //alert order susscess
   const [orderSusscess, setOrderSusscess] = useState(false) 
   const [product, setProduct] = useState([]);
@@ -38,11 +39,16 @@ function Detail() {
   }
   
   //butotn add to cart
-  const addToCart = (id) => {
-    if(userCheck.user) 
+  const addToCart = (product) => {
+    if(userCheck.user) {
       setOrderSusscess(true)
-    else 
-      navigate("/login")
+      dispatch(cart(product))
+    }
+    else {
+      const isLogin = window.confirm("Sign in to continue.")
+      if(isLogin)
+        navigate("/login")
+    }
   }
 
   return (
@@ -68,7 +74,7 @@ function Detail() {
               </div>
               <h4>Color</h4>
               <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris tellus porttitor purus, et volutpat sit.</p>
-              <button className='button' onClick={() => addToCart(product._id)}>
+              <button className='button' onClick={() => addToCart(product)}>
                 Add To Cart 
                 <FaRegHeart />
               </button>

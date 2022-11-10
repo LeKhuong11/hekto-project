@@ -28,6 +28,7 @@ const languages = [
 
 function Header() {
   const [renderMobile, setRenderMobile] = useState(false);
+  const cartItemsLength = useSelector(state => state.cart)
   
   //get user name
   const user = useSelector(state => state.user)
@@ -76,7 +77,7 @@ function Header() {
               <div>
                 <Link to="cart">
                   <FaShoppingCart />
-                  <p style={{margin: -7}}>[2]</p>
+                  <p style={{margin: -7}}>[{cartItemsLength.data.length === 0 ? '' : cartItemsLength.data.length}]</p>
                 </Link>
               </div>
             </div>

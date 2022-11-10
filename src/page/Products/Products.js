@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react'
-import { Link } from 'react-router-dom'
 import { useSelector } from 'react-redux'
 import Color from 'image/color.svg'
 import HeaderPage from 'components/Header-page/HeaderPage'
@@ -27,9 +26,7 @@ import './product.scss'
             <p>About 9.620 result (0.62 seconds)</p>
             <div>
               {product && product.map((item, index) => (
-                <Link key={index} to={`detail/${item._id}`}>
-                  <Product product={item} color={Color} />
-                </Link>
+                <Product key={index} product={item} color={Color} />
               ))}
             </div>
           </div>

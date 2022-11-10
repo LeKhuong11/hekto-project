@@ -161,9 +161,9 @@ function Shop() {
               </div>
               <div className='show-product-list'>
                   {showProduct && showProduct.map((item, index) => {
-                    return <Link key={index} to={`detail/${item._id}`}>
+                    return <div  key={index}>
                         <Product key={index} data={item}/>
-                    </Link>
+                    </div>
                   })}
               </div>
           </div>
