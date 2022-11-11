@@ -1,7 +1,8 @@
-import { FaRegHeart, FaShoppingCart } from 'react-icons/fa';
+import { FaRegHeart, FaShoppingCart, FaSistrix } from 'react-icons/fa';
 import {  useDispatch } from 'react-redux'
 import { Link } from 'react-router-dom';
 import { cart } from 'redux/cartSlice';
+import { Action } from 'components/OrderSusscess/OrderSusscess'
 import './product.scss'
 
 
@@ -24,6 +25,7 @@ function Product(props) {
         <div className='product-icon' style={changeStyle ? {top: 0, display: 'flex', color: '#1389FF'} : {flexDirection: 'column'}} >
             <FaShoppingCart onClick={(e) => handleClickAddToCart(props.product)} />
             <FaRegHeart />
+            <FaSistrix />
         </div>
         <div className='product-info'>
             <h3>{name}</h3>

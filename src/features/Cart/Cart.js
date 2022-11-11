@@ -115,7 +115,7 @@ function Cart() {
                             <input placeholder='Postal Code' type='text' />
                           </div>
                       </div>
-                        <button style={{margin: "25px 0 0 30px", width: 150}} className='button'>Calculate Shipping</button>
+                        <button style={{margin: "25px 0 0 30px", width: 185, height: 50}} className='button'>Calculate Shipping</button>
                   </div>
                 </td>
                 <td></td>

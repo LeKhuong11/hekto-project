@@ -1,78 +1,87 @@
 import React from 'react'
-import './home.scss'
-import 'components/Button/button.scss'
-import { useNavigate } from 'react-router-dom'
-import light from 'image/light-header.svg'
-import sofa from 'image/sofa-header.svg'
-import chair1 from 'image/home/chair1.svg'
-import chair2 from 'image/home/chair2.svg'
-import chair3 from 'image/home/chair3.svg'
-import chair4 from 'image/home/chair4.svg'
+import { useState } from 'react'
+import { useSelector } from 'react-redux'
+import { FaChevronLeft, FaChevronRight } from 'react-icons/fa'
 import Color from 'image/home/color2.svg';
 import Product from 'page/Products/Product'
-
-
-const product1 = [
-  {
-    name: 'Cantilever',
-    img: chair1,
-    price: 42.00
-  },
-  {
-    name: 'Cantilever',
-    img: chair2,
-    price: 42.00
-  },
-  {
-    name: 'Cantilever',
-    img: chair3,
-    price: 42.00
-  },
-  {
-    name: 'Cantilever',
-    img: chair4,
-    price: 42.00
-  },
-]
+import Slider from './Slider'
+import './home.scss'
+import 'components/Button/button.scss'
 
 function Home() {
   document.title = "Hekto Store"
-  const navigate = useNavigate();
+  const dataList = useSelector(state => state.data)
+  const { data } = dataList
+  
+  const [ slider, setSlider ] = useState({})
+  const [ count, setCount ] = useState(1)
+ 
+  //filter products type is "chair"
+  const chairProducts = data.filter(item => {
+    return item.categories.includes('chair')
+  })
 
-  //Click to shop
-  const handleClickTo = () => {
-    navigate("/shop")
+
+  //handle click next 
+  const handleClickNext = () => {
+    setCount(count + 1)
+    
+    const products = document.querySelectorAll(".product")
+    const productList = document.querySelector(".home-product-list")
+    productList.appendChild(products[0])
+    const product = document.querySelector(".product")
+    
+    let item = {}
+    
+    if(count < (chairProducts.length - 3)) {
+       item = {
+        styles: {
+          transform: `translateX(-${(product.clientWidth + 20) * count}px)`
+        }
+      }
+      setSlider(item)
+    }
+    else {
+      console.log(count);
+    }
   }
+
+  const handleClickPrev = () => {
+    console.log(count);
+    setCount(count - 1)
+    const products = document.querySelector(".home-product-list")
+    const product = document.querySelector(".product")
+    console.log((product.clientWidth + 20) * count - 1 );
+    const item = {
+      styles: {
+        transform: `translateX(${(product.clientWidth + 20) * count - 1}px)`,
+        transition: `transform 0.2s linear`,
+      }
+    }
+    setSlider(item)
+  }
+  
 
   return (
     <div className='home'>
-      <div className='home-banner'>
-        <div className='home-left'>
-          <img width={200} src={light} alt="light" />
-          <div>
-            <p style={{fontWeight: 550,color: '#FB2E86', margin: 0 }}>Best Furniture For Your Castle...</p>
-            <h1 style={{fontSize: 40, margin: "5px 0 10px 0"}}>New Furniture Collection Trend in 2020</h1>
-            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry... </p>
-            <button className='button' onClick={handleClickTo}>
-              Shop now
-            </button>
-          </div>
-        </div>
-        <div className='home-right'>
-          <div>
-            <img width={350} alt='sofa' src={sofa}/>
-          </div>
-        </div>
-      </div>
+      <Slider></Slider>
       <div className='home-product'>
         <div>
           <h1>Featured Product</h1>
-          <div className='home-product-list'>
-             {product1.map((item, index) => {
-                return <Product key={index} product={item} color={Color} changeStyle={true}/>
-             })}
+          <div>
+              <FaChevronLeft onClick={handleClickPrev} />
+            <div className='home-product-slideshow'>
+              <div className='home-product-list' style={slider.styles}>
+                {chairProducts.map((item, index) => {
+                  return <Product key={index} product={item} color={Color} changeStyle={true}/>
+                })}
+              </div>
+            </div>
+                <FaChevronRight onClick={handleClickNext} />
           </div>
         </div>
+      </div>
+      <div>
       </div>
     </div>
   )

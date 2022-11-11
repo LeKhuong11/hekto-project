@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { useSelector } from 'react-redux'
 import { Link, NavLink } from 'react-router-dom';
-import { FaBars, FaEnvelope, FaPhoneAlt, FaRegHeart, FaSearch, FaShoppingCart, FaUser } from 'react-icons/fa';
+import { FaBars, FaEnvelope, FaPhoneAlt, FaRegHeart, FaRegUser, FaSearch, FaShoppingCart } from 'react-icons/fa';
 import Hekto from 'image/Hekto.svg'
 import './header.scss'
 
@@ -65,7 +65,7 @@ function Header() {
               <div>
                  <Link to="login">
                   <p style={{padding: 2}}>{user.user ? userName : "Login"}</p>
-                  <FaUser />
+                  <FaRegUser />
                  </Link>
               </div>
               <div>

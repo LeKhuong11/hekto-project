@@ -8,6 +8,7 @@
             width: 80%;
             & h2 {
                 margin: 0;
+                font-size: 25px;
             }
             & p {
                 margin: 0;
@@ -18,10 +19,19 @@
             display: flex;
             & .choose-type {
                 width: 25%;
+                &>div {
+                    margin-bottom: 20px;
+
+                    & h4 {
+                        font-size: 20px;
+                        font-weight: 550;
+                        text-decoration: underline;
+                    }
+                }
                 & form {
                     margin-left: 10px;
                     & input {
-                        margin: 12px 5px;
+                        margin: 9px 5px;
                         color: #7E81A2;
                     }
                 }

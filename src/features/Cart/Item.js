@@ -5,11 +5,11 @@ function Item(props) {
     <tr>
         <td>
             <div>
-                <img width={100} src={img} alt="" />
+                <img width={65} src={img} alt="" />
                 <div>
-                <h4>{name}</h4>
-                <p>Color: Brown</p>
-                <p>Size: XL</p>
+                    <h4>{name}</h4>
+                    <p>Color: Brown</p>
+                    <p>Size: XL</p>
                 </div>
             </div>
         </td>
@@ -17,7 +17,7 @@ function Item(props) {
         <td>3</td>
         <td>$64.00</td> 
         <td>
-            <input type="submit" onClick={(e) => onDelete(id)} value="Delete" />
+            <input type="submit" onClick={(e) => onDelete(id)} value="x" />
         </td>
     </tr>
   )

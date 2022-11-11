@@ -28,12 +28,19 @@
                         }
                         & th {
                             text-align: center;
+
+                            & h3 {
+                                font-size: 20px;
+                                font-weight: 550;
+                            }
                         }
                     }
                     & tbody {   
-                    
+                        
                         & h4 {
                             margin: 0;
+                            font-size: 14px;
+                            font-weight: 550;
                         } 
                         & p {
                             font-size: 12px;
@@ -46,7 +53,7 @@
                         }
                         & td {
                             border-bottom: 1px solid rgb(187, 186, 186);
-                            padding: 0;
+                            padding: 14px 0;
                             width: 300px;
                             color: #15245E;
                             font-weight: 600;
@@ -59,11 +66,15 @@
                                 display: flex;
                                 align-items: center;
                                 width: 100%;
+
+                                &>div {
+                                    text-align: left;
+                                }
                             }
                             & input[type="submit"] {
                                 background-color: rgb(59, 134, 231);
                                 cursor: pointer;
-                                width: 55px;
+                                width: 25px;
                                 height: 24px;
                                 border: none;
                                 color: antiquewhite;
@@ -91,14 +102,20 @@
         display: flex;
         flex-direction: column;
         align-items: center;
-
         & table {
             width: 95%;
+            margin-bottom: 30px;
 
             & thead {
                 height: 29px;
                 margin: 19px 0;
                 text-align: center;
+
+                & h3 {
+                    font-size: 20px ;
+                    font-weight: 550;
+                    margin-bottom: 35px;
+                }
             }
             & tbody {
 
@@ -121,14 +138,22 @@
                 &>div {
                     display: flex; 
                     justify-content: space-between;
+                    align-items: center;
                     border-bottom: 2px solid rgb(201, 200, 200);
-                    padding: 10px 0;
-                    margin:     5px 0 20px;
+                    padding: 7px 0;
+                    margin: 15px 0 25px;
                     width: 80%;
-                    & h4, p {
-                        margin: 5px 0;
+                    & h4{
+                        margin: 0;
                         color: #1D3178;
                         font-weight: 600;
+                        font-size: 17px;
+                    }
+                    & p {
+                        font-size: 14px;
+                        font-weight: 550;
+                        color: #1D3178;
+                        margin: 0;
                     }
                 }
                 & input{
@@ -149,7 +174,7 @@
 
         & .shipping {
             @extend %box;
-
+            
             &>div {
                 & div {
                     width: 100%;

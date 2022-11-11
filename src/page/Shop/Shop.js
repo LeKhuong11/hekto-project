@@ -122,7 +122,7 @@ function Shop() {
             <div className='shop-body-content'>
               <div className='choose-type'>
                 <div className='choose-type-brand'>
-                  <h2>Product Brand</h2>
+                  <h4>Product Brand</h4>
                     <form>
                       {productsBrand.map((item, index) => {
                         return <div key={item}>
@@ -133,7 +133,7 @@ function Shop() {
                     </form>
                 </div>
                 <div className='choose-type-discount'>
-                      <h2>Discount Offer</h2>
+                      <h4>Discount Offer</h4>
                       <form>
                         <input onChange={handleCheckbox} type="checkbox" name="discount" value="0" />
                         <label>No Discount</label> <br/> 
@@ -148,7 +148,7 @@ function Shop() {
                       </form>
                 </div>
                 <div className='choose-type-categories'>
-                <h2>Categories</h2>
+                <h4>Categories</h4>
                     <form>
                         {categories.map((item, index) => {
                           return <div key={item}>

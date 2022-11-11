@@ -11,10 +11,13 @@
             display: flex;
             & a {
                 text-decoration: none;
+                color: black;
             }
         }
     }
-    & h1{
+    & h2{
         margin: 10px 0;
+        font-weight: 550;
+        font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
     }
 }
