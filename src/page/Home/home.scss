@@ -64,6 +64,19 @@
                             height: auto;
                             cursor: pointer;
                         }
+
+                        & .product{
+                            &:hover {
+                                & .product-info, h3 {
+                                    background-color: #2F1AC4;
+                                    color: #fff;
+                                }
+                                & button {
+                                    transform: translateY(15px);
+                                    transition: transform .25s linear;
+                                }
+                            }
+                        }
                     }
                 }
             }

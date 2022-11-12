@@ -4,6 +4,7 @@ import Color from 'image/color.svg'
 import HeaderPage from 'components/Header-page/HeaderPage'
 import Product from './Product'
 import Introduce from 'components/introduce/Introduce'
+import { Action } from 'components/OrderSusscess/OrderSusscess'
 import './product.scss'
 
 
@@ -12,6 +13,7 @@ import './product.scss'
   
   const data = useSelector(state => state.data)
   const [product, setProduct] = useState(data.data);
+  const [ orderSusscess, setOrderSusscess ] = useState(false)
 
   useEffect(() => {
     setProduct(data.data)
@@ -26,13 +28,15 @@ import './product.scss'
             <p>About 9.620 result (0.62 seconds)</p>
             <div>
               {product && product.map((item, index) => (
-                <Product key={index} product={item} color={Color} />
+                <Product onClicked={setOrderSusscess} key={index} product={item} color={Color} />
               ))}
             </div>
           </div>
           <div>
             <Introduce />
           </div>
+          {orderSusscess === 'render' && <Action />}
+          
       </div>
     </div>
   )

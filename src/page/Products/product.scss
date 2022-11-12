@@ -36,8 +36,19 @@
     &-image {
         display: flex;
         justify-content: center;
+        flex-direction: column;
         align-items: center;
         height: 65%;
+        overflow: hidden;
+        & button {
+            background-color: #00be53;
+            border: none;
+            border-radius: 3px;
+            color: #fff;
+            height: 35px;
+            transform: translateY(65px);
+            font-size: 15px;
+        }
     }
     &-icon {
         position: absolute; 

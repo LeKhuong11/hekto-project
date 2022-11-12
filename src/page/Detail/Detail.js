@@ -51,6 +51,10 @@ function Detail() {
     }
   }
 
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   return (
     <div className='detail'>
         <HeaderPage namePage="Product Detail" />

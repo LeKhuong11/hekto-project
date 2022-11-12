@@ -29,36 +29,26 @@ function Home() {
     const products = document.querySelectorAll(".product")
     const productList = document.querySelector(".home-product-list")
     productList.appendChild(products[0])
-    const product = document.querySelector(".product")
+    // const product = document.querySelector(".product")
+    // let item = {}
     
-    let item = {}
-    
-    if(count < (chairProducts.length - 3)) {
-       item = {
-        styles: {
-          transform: `translateX(-${(product.clientWidth + 20) * count}px)`
-        }
-      }
-      setSlider(item)
-    }
-    else {
-      console.log(count);
-    }
+    // if(count < (chairProducts.length - 3)) {
+    //    item = {
+    //     styles: {
+    //       transform: `translateX(-${(product.clientWidth + 20) * count}px)`
+    //     }
+    //   }
+    //   setSlider(item)
+    // }
+    // else {
+    //   console.log(count);
+    // }
   }
 
   const handleClickPrev = () => {
-    console.log(count);
-    setCount(count - 1)
-    const products = document.querySelector(".home-product-list")
-    const product = document.querySelector(".product")
-    console.log((product.clientWidth + 20) * count - 1 );
-    const item = {
-      styles: {
-        transform: `translateX(${(product.clientWidth + 20) * count - 1}px)`,
-        transition: `transform 0.2s linear`,
-      }
-    }
-    setSlider(item)
+    const products = document.querySelectorAll(".product")
+    const productList = document.querySelector(".home-product-list")
+    productList.prepend(products[products.length - 1])
   }
   
 

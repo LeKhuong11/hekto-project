@@ -1,0 +1,44 @@
+.blog {
+
+    &-body {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        margin-top: 50px;
+        &>div {
+            width: 80%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            &>div {
+                width: 80%;
+                margin-bottom: 55px;
+                &>div {
+                    margin: 20px 0;
+                    & span {
+                        margin: 0 10px;
+                        padding: 3px 12px;
+                        background-color: #FFE7F9;
+                        border-radius: 3px;
+                        color: #151875;
+                        & svg {
+                            margin: 0 5px;
+                        }
+                    }
+                }
+                & .body-content-title {
+                    
+                    & h4 {
+                        font-weight: 550;
+                        color: #151875;
+                        margin: 15px 0;
+                    }
+                    & p {
+                        color: #808080;
+                        font-size: 15px;
+                    }
+                }
+            }
+        }
+    }
+}
