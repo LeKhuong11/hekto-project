@@ -20,7 +20,6 @@ function Signin() {
     dispatch(user(account))
     navigate("../products")  
   }
-  console.log(userCheck);
   useEffect(() => {
     window.scrollTo(0, 0);
   });

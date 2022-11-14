@@ -32,6 +32,14 @@
     padding: 20px;
     margin: 0 15px;
     border-bottom: 1px solid transparent;
+    & h3 {
+        font-size: 18px;
+        font-weight: 600;
+        margin: 20px 0;
+    }
+    & img {
+        margin: 35px 0 20px;
+    }
     & p {
         color: rgb(124, 122, 122);
         font-size: 13px;

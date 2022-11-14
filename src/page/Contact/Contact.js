@@ -4,10 +4,10 @@ import EllipsePink from 'image/contact/Ellipse42.svg';
 import EllipseBlue from 'image/contact/Ellipse43.svg';
 import EllipseYellow from 'image/contact/Ellipse46.svg';
 import EllipseGreen from 'image/contact/Ellipse47.svg';
+import contactImg from 'image/contact/contact-image.svg' 
 import './contact.scss'
 import 'features/reponsive/reponsive.scss'
 import 'components/Button/button.scss'
-import contactImg from 'image/contact/contact-image.svg' 
 
 function Contact() {
   return (

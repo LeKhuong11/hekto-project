@@ -3,8 +3,8 @@ import { useNavigate } from 'react-router-dom'
 import Intro from './Intro'
 import './about.scss'
 import 'components/Button/button.scss'
-import Group from 'image/about/Group.svg'
 import HeaderPage from 'components/Header-page/HeaderPage'
+import Group from 'image/about/Group.svg'
 import trunk from 'image/about/trunk.svg'
 import premium from 'image/about/premium-quality.svg'
 import cashback from 'image/about/cashback.svg'
@@ -24,7 +24,7 @@ const listImg = [
   },
   {
     img: premium,
-    title: "Quality Product"
+    title: "24/7 Support"
   }, 
   {
     img: support24h,
