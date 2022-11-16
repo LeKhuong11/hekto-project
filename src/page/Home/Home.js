@@ -18,6 +18,8 @@ import room1 from 'image/home/room1.svg';
 import './home.scss'
 import 'components/Button/button.scss'
 import { useEffect } from 'react'
+import { toast } from 'react-toastify'
+import Toast from 'components/ToastMessage/Toast'
 
 const listImg = [
   {
@@ -79,6 +81,18 @@ function Home() {
     const productList = document.querySelector(".home-product-list")
     productList.prepend(products[products.length - 1])
   }
+
+  const handleShowToastMessage = () => {
+    toast.success('Wow added so easy!', {
+      position: "top-right",
+      autoClose: 1800,
+      hideProgressBar: false,
+      closeOnClick: true,
+      draggable: true,
+      progress: undefined,
+      theme: "light",
+    });
+  }
   
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -94,7 +108,7 @@ function Home() {
             <div className='home-product-slideshow'>
               <div className='home-product-list' style={slider.styles}>
                 {chairProducts.map((item, index) => {
-                  return <Product key={index} product={item} color={Color} changeStyle={true}/>
+                  return <Product key={index} product={item} onClicked={handleShowToastMessage} color={Color} changeStyle={true}/>
                 })}
               </div>
             </div>
@@ -153,6 +167,7 @@ function Home() {
           </div>
         </div>
       </div>
+      <Toast />
     </div>
   )
 }

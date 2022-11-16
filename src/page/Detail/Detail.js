@@ -2,20 +2,20 @@ import { useNavigate, useParams } from 'react-router-dom'
 import { useState, useEffect } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import { FaFacebook, FaGithub, FaRegHeart, FaStar, FaTwitter } from 'react-icons/fa'
-import { toast, ToastContainer } from 'react-toastify'
+import { toast } from 'react-toastify'
 import { cart } from 'redux/cartSlice'
 import Introduce from 'components/introduce/Introduce'
 import HeaderPage from 'components/Header-page/HeaderPage'
+import Toast from 'components/ToastMessage/Toast'
 import './detail.scss'
 import 'components/Button/button.scss'
-import 'react-toastify/dist/ReactToastify.css';
+
 
 function Detail() {
   const userCheck = useSelector(state => state.user)
   const navigate = useNavigate();
   const dispatch = useDispatch();
-  //alert order susscess
-  const [orderSusscess, setOrderSusscess] = useState(false) 
+
   const [product, setProduct] = useState([]);
   
   //get id in params
@@ -61,7 +61,6 @@ function Detail() {
       quantity: 1
   }
     if(userCheck.user) {
-      setOrderSusscess(true)
       dispatch(cart(productAdded))
     }
     else {
@@ -124,17 +123,8 @@ function Detail() {
           </div>
         </div>
         <Introduce />
-
-        <ToastContainer
-          position="top-right"
-          autoClose={1800}
-          hideProgressBar={true}
-          newestOnTop={false}
-          closeOnClick
-          rtl={false}
-          theme="light"
-          />
-        <ToastContainer />
+        
+        <Toast />
     </div>
   )
 }

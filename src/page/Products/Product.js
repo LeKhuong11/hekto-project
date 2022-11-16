@@ -10,8 +10,9 @@ function Product(props) {
     const { color, changeStyle } = props;
     const dispatch = useDispatch();
     const navigate = useNavigate()
-    var { data } = useSelector(state => state.cart)
-    
+    const { data } = useSelector(state => state.cart)
+    let AllItems = [...data];
+
     const handleClickAddToCart = (product) => {
         props.onClicked()
         let tempProduct = [];
@@ -25,7 +26,7 @@ function Product(props) {
             quantity: 1
         }
         if(data) {
-            tempProduct = data.filter(item => {
+            tempProduct = AllItems.filter(item => {
                 return item.id.includes(productAdded.id)
             })
         }
@@ -36,22 +37,17 @@ function Product(props) {
             productAdded.quantity = getQuantity + 1
 
             // xoa san pham bi trung sau do update san pham moi len localStorage da cap nhat so luong va gia
-            console.log(data);
-            for (let i = 0; i < data.length; i++) {
-                if(data[i].id === productAdded.id) {    
-                    data.splice(i, 1);
+            for (let i = 0; i < AllItems.length; i++) {
+                if(AllItems[i].id === productAdded.id) {    
+                    AllItems.splice(i, 1);
                 }
             }
-            data.push(productAdded)
-            console.log(data);
-            dispatch(cartUpdate(data))
+            AllItems.push(productAdded)
+            dispatch(cartUpdate(AllItems))
         }
         else {
             dispatch(cart(productAdded))
         }
-
-
-        //dispatch(cart(productAdded))
     }   
 
     const handleToDetail = (id) => {

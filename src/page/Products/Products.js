@@ -5,8 +5,8 @@ import HeaderPage from 'components/Header-page/HeaderPage'
 import Product from './Product'
 import Introduce from 'components/introduce/Introduce'
 import { getItems } from 'redux/dataSlice';
-import { toast, ToastContainer } from 'react-toastify'
-import 'react-toastify/dist/ReactToastify.css';
+import { toast } from 'react-toastify'
+import Toast from 'components/ToastMessage/Toast'
 import './product.scss'
 
 
@@ -59,18 +59,8 @@ import './product.scss'
         <div>
           <Introduce />
         </div>
-        <ToastContainer
-          position="top-right"
-          autoClose={1800}
-          hideProgressBar={true}
-          newestOnTop={false}
-          closeOnClick
-          rtl={false}
-          theme="light"
-          />
-        <ToastContainer />
-        
-    </div>
+          <Toast />
+        </div>
       }
     </div>
   )

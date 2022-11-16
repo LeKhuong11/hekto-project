@@ -1,6 +1,8 @@
 import { useEffect } from 'react';
 import { FaRegHeart, FaShoppingCart, FaStar } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
+import { toast } from 'react-toastify';
+import Toast from 'components/ToastMessage/Toast';
 import './shop.scss'
 
 function Product(props) {
@@ -16,7 +18,15 @@ function Product(props) {
 
     //function add to cart
     const handleAddToCart = (product) => {
-      console.log(product);
+      toast.success('Wow added so easy!', {
+        position: "top-right",
+        autoClose: 1800,
+        hideProgressBar: false,
+        closeOnClick: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+      });
 
     }
     useEffect(() => {
@@ -48,6 +58,11 @@ function Product(props) {
                 <FaRegHeart color='#111C85' />
               </div>
           </div>
+        </div>
+        <div>
+        </div>
+        <div>
+          <Toast />
         </div>
     </div>
   )

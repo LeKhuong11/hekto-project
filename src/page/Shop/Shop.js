@@ -65,7 +65,6 @@ function Shop() {
             }
           }
         }
-        console.log(newProducts);
         setShowProduct(newProducts)
     }
     else {
