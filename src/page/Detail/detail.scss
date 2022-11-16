@@ -25,18 +25,27 @@
 
             & h2 {
                 margin: 10px 0 ;
+                font-weight: 550;
+                color: #0c1463;
             }
             & h4 {
                 margin: 7px 10px 5px 0;
+                font-size: 17px;
+                font-weight: 550;
+            }
+            p {
+                font-size: 16px;
+                color: rgb(158, 158, 158);
             }
             & div {
                 display: flex;
                 align-items: center;
                 &>p{
-                    margin: 0 7px;
+                    margin: 3px 5px;
+                    font-size: 18px;
                 }  
                 & svg {
-                    padding: 0 5px;
+                    margin: 0 3px;
                 }
             }
             & button {
@@ -56,6 +65,14 @@
         justify-content: center;
         &>div {
             width: 80%;
+            & h2 {
+                font-weight: 550;
+
+            }
+            & h3 {
+                font-size: 25px;
+            }
         }
+        
     }
 }

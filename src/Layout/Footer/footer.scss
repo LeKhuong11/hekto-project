@@ -20,12 +20,17 @@
             & form {
                 display: flex;
             }
+            & h3 {
+                font-size: 24px;
+                font-weight: 550;
+                color: #333;
+            }
             &-submit input{
                 outline: 0;
                 border: none;
-                height: 32.5px;
-                width: 195px;
-                padding: 5px;
+                height: 33px;
+                width: 225px;
+                padding: 10px;
             }
             &-submit button{
                 background-color: #FB2E86;
@@ -38,6 +43,8 @@
                 border: none;
                 cursor: pointer;
                 border-radius: 3px;
+                font-size: 15px;
+                padding: 0 5px;
             }
         }
     }

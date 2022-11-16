@@ -6,9 +6,13 @@ import image1 from 'image/blog/img1.svg'
 import image2 from 'image/blog/img2.svg'
 import image3 from 'image/blog/img3.svg'
 import './blog.scss'
+import { useEffect } from 'react'
 
 function Blog() {
   
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
   return (
     <div className='blog'>
       <HeaderPage namePage="Blog" />

@@ -1,6 +1,7 @@
 import React from 'react'
 import { FaFacebook, FaGithub, FaTwitter } from 'react-icons/fa'
 import Hekto from 'image/Hekto.svg'
+import 'components/Button/button.scss'
 import './footer.scss'
 
 function Footer() {
@@ -13,7 +14,7 @@ function Footer() {
                   <div className='footer-top-content-submit'>
                    <form>
                     <input type="email" placeholder='Enter Email Address' />
-                    <button>Sign Up</button>
+                    <button className='butotn'>Sign Up</button>
                    </form>
                   </div>
                   <p>Contact Info</p>

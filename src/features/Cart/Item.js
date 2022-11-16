@@ -1,6 +1,16 @@
+import { FaChevronLeft, FaChevronRight } from "react-icons/fa"
 
 function Item(props) {
-    const { onDelete, id, img, name, price } = props
+    const { 
+        id, 
+        img, 
+        name, 
+        price, 
+        quantity, 
+        onDelete,
+        onIncrease,
+        onDecrease 
+    } = props
   return (
     <tr>
         <td>
@@ -14,8 +24,8 @@ function Item(props) {
             </div>
         </td>
         <td>${price}.00</td>
-        <td>3</td>
-        <td>$64.00</td> 
+        <td><FaChevronLeft onClick={() => onDecrease(id, quantity)} />{quantity}<FaChevronRight onClick={() => onIncrease(id, quantity)}/></td>
+        <td>${price*quantity}.00</td> 
         <td>
             <input type="submit" onClick={(e) => onDelete(id)} value="x" />
         </td>

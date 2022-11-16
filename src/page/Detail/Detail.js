@@ -2,12 +2,13 @@ import { useNavigate, useParams } from 'react-router-dom'
 import { useState, useEffect } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import { FaFacebook, FaGithub, FaRegHeart, FaStar, FaTwitter } from 'react-icons/fa'
+import { toast, ToastContainer } from 'react-toastify'
+import { cart } from 'redux/cartSlice'
 import Introduce from 'components/introduce/Introduce'
-import { Action } from 'components/OrderSusscess/OrderSusscess'
 import HeaderPage from 'components/Header-page/HeaderPage'
 import './detail.scss'
 import 'components/Button/button.scss'
-import { cart } from 'redux/cartSlice'
+import 'react-toastify/dist/ReactToastify.css';
 
 function Detail() {
   const userCheck = useSelector(state => state.user)
@@ -40,9 +41,28 @@ function Detail() {
   
   //butotn add to cart
   const addToCart = (product) => {
+    toast.success('Wow added so easy!', {
+      position: "top-right",
+      autoClose: 1800,
+      hideProgressBar: false,
+      closeOnClick: true,
+      draggable: true,
+      progress: undefined,
+      theme: "light",
+    });
+
+    //create a object product new
+    const productAdded = {  
+      id: product._id,
+      name: product.name,
+      img: product.img,
+      size: product.size,
+      price: product.price,
+      quantity: 1
+  }
     if(userCheck.user) {
       setOrderSusscess(true)
-      dispatch(cart(product))
+      dispatch(cart(productAdded))
     }
     else {
       const isLogin = window.confirm("Sign in to continue.")
@@ -105,7 +125,16 @@ function Detail() {
         </div>
         <Introduce />
 
-        {orderSusscess && <Action />}
+        <ToastContainer
+          position="top-right"
+          autoClose={1800}
+          hideProgressBar={true}
+          newestOnTop={false}
+          closeOnClick
+          rtl={false}
+          theme="light"
+          />
+        <ToastContainer />
     </div>
   )
 }

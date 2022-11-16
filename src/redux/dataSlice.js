@@ -1,17 +1,31 @@
-import { createSlice } from "@reduxjs/toolkit";
+import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 
+export const getItems = createAsyncThunk(
+    'data/getItems', 
+    async () => {
+        return await fetch('https://fe21-db.herokuapp.com/hekto')
+            .then(res => res.json())
+    }
+)
 
 const dataSilce = createSlice({
     name: 'data',
     initialState: {
-        data: []
+        data: [],
+        isLoading: false
     },
-    reducers: {
-        data: (state, action) => {
+    extraReducers: {
+        [getItems.pending]: (state) => {
+            state.isLoading = true
+        },
+        [getItems.fulfilled]: (state, action) => {
             state.data = action.payload
+            state.isLoading = false
+        },
+        [getItems.pending]: (state) => {
+            state.isLoading = false
         }
-    }
+    } 
 })
 
-export const { data } = dataSilce.actions
 export default dataSilce.reducer

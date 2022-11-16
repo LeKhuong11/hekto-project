@@ -12,6 +12,7 @@ import support24h from 'image/about/24-hours-support.svg'
 import person1 from 'image/about/person1.svg'
 import person2 from 'image/about/person2.svg'
 import person3 from 'image/about/person3.svg'
+import { useEffect } from 'react'
 
 const listImg = [
   {
@@ -54,6 +55,10 @@ function About() {
   const handleClickTo = () => {
     navigate("/contact")
   }
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
   return (
     <div className='about'>
       <HeaderPage namePage="About Us" />

@@ -14,8 +14,10 @@ import productTrending from 'image/home/productTrending.svg'
 import EllipseViolet from 'image/contact/Ellipse41.svg';
 import EllipsePink from 'image/contact/Ellipse42.svg';
 import EllipseBlue from 'image/contact/Ellipse43.svg';
+import room1 from 'image/home/room1.svg';
 import './home.scss'
 import 'components/Button/button.scss'
+import { useEffect } from 'react'
 
 const listImg = [
   {
@@ -78,7 +80,9 @@ function Home() {
     productList.prepend(products[products.length - 1])
   }
   
-
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
   return (
     <div className='home'>
       <Slider />
@@ -129,6 +133,24 @@ function Home() {
                 <button className='button'>Add To Cart</button>
               </div>
             </div>
+        </div>
+        <div className='home-product-room'>
+          <div>
+            <h1>leatest Blog</h1>
+            <div className='room-detail'>
+              <div> 
+                <div>
+                  <img src={room1} alt='' />
+                  <span>Saber Ali</span>
+                  <span>21 August, 2020</span>
+                </div>
+                <div>
+                  <h4>Top essential Trends in 2021</h4>
+                  <p>More off this less hello samlande lied much over tightly circa horse taped mightly</p>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>

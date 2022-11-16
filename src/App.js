@@ -5,25 +5,12 @@ import Header from './Layout/Header/Header';
 import Footer from 'Layout/Footer/Footer';
 import { useDispatch } from 'react-redux'
 import Loading from 'features/Loading/Loading';
-import { data } from 'redux/dataSlice';
 import './App.css';
+import { ToastContainer } from 'react-toastify';
 
 
 function App() {
-  const dispatch = useDispatch();
-  
-  useEffect(() => {
-    fetch('https://fe21-db.herokuapp.com/hekto')
-    .then(response => {
-      return response.json();
-    }) 
-    .then(async (dataList) => {
-      
-      dispatch(data(dataList))
-      })
-    }, [dispatch])
-    
-    
+
   return (
     <div className="App">
        <Header />

@@ -38,6 +38,10 @@
 
 .header-feature {
     margin-right: 25px;
+    
+    & svg {
+        margin: 0 3px;
+    }
 }
 .header-feature a {
     display: flex;

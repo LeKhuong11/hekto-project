@@ -8,8 +8,14 @@ import contactImg from 'image/contact/contact-image.svg'
 import './contact.scss'
 import 'features/reponsive/reponsive.scss'
 import 'components/Button/button.scss'
+import { useEffect } from 'react';
 
 function Contact() {
+
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
   return (
     <div className='contact'>
       <HeaderPage namePage="Contact US" />

@@ -1,8 +1,8 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { useState } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import HeaderPage from 'components/Header-page/HeaderPage'
-import { cartUpdate, clearCart } from 'redux/cartSlice';
+import { cart, cartUpdate, clearCart } from 'redux/cartSlice';
 import Item from './Item'
 import './cart.scss'
 import 'components/Button/button.scss'
@@ -10,18 +10,18 @@ import NotFoundCart from './NotFoundCart';
 
 function Cart() {
   const dispatch = useDispatch()
-
   //get info cart items
-  const carts = useSelector(state => state.cart)
-  const { data } = carts;
-  const [cartitems, setCartItems ] = useState(data)
+  const { data } = useSelector(state => state.cart)
 
-  const handleDeleteItems = (id) => {
-    const newCartItems = cartitems.filter(item => {
-      return !item._id.includes(id)
+  const [cartItems, setCartItems ] = useState(data)
+  const [ totals, setTotals ] = useState(0)
+  
+  const handleDeleteItem = (id) => {
+    const newCartItems = cartItems.filter(item => {
+      return !item.id.includes(id)
     })
+
     setCartItems(newCartItems)
-    dispatch(cartUpdate(newCartItems))
   }
 
   //clear cart
@@ -30,10 +30,38 @@ function Cart() {
     setCartItems([])
   }
 
+  //hanlde set quantity
+  const handleIncreaseQuantity = (id) => {
+    setCartItems(cart => 
+      cart.map(item => 
+        id === item.id ? {...item, quantity: item.quantity + 1} : item
+      )  
+    )
+    
+  }
+  const handleDecreaseQuantity = (id) => {
+    setCartItems(cart => 
+      cart.map(item => 
+        id === item.id ? {...item, quantity: item.quantity - (item.quantity > 1 ? 1: 0)} : item
+      )  
+    )
+  }
+  //kho co su thay doi trong cart se dispatch lai cartItems
+  useEffect(() => {
+    dispatch(cartUpdate(cartItems))
+    cartItems.forEach(item => {
+      setTotals( (item.quantity * item.price))
+    });
+  },[cartItems])
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   return (
     <div className='cart'>
       <HeaderPage namePage="Cart" />
-      {cartitems.length === 0 ? <NotFoundCart /> :
+      {cartItems.length === 0 ? <NotFoundCart /> :
         <div className='cart-body'>
           <div>
             <div className='cart-body-products'>
@@ -47,18 +75,24 @@ function Cart() {
                       </tr>
                   </thead>
                   <tbody>
-                      {cartitems.map((item, index) => {
-                        return <Item key={index} onDelete={handleDeleteItems} id={item._id} img={item.img} name={item.name} price={item.price} />
+                      {cartItems.map((item, index) => {
+                        return <Item 
+                                  key={index} 
+                                  id={item.id} img={item.img} 
+                                  quantity={item.quantity}
+                                  name={item.name} 
+                                  price={item.price} 
+                                  onDelete={handleDeleteItem} 
+                                  onIncrease={handleIncreaseQuantity}
+                                  onDecrease={handleDecreaseQuantity}
+                                />
                       })}
-                      {cartitems.length > 0 && <tr>
-                        <td>
-                          <button className='button'>Update Curt</button>
-                        </td>
-                        <td colSpan={3}></td>
+                      <tr>
+                        <td colSpan={4}></td>
                         <td>
                           <button className='button' onClick={handleClearCart}>Clear Curt</button>
                         </td>
-                      </tr>}
+                      </tr>
                   </tbody>
               </table>
             </div>
@@ -77,7 +111,7 @@ function Cart() {
                         <div>
                           <div>
                             <h4>Subtotals: </h4>
-                            <p>$219.00</p>
+                            <p>${totals}.00</p>
                           </div>
                           <div>
                             <h4>Totals: </h4>

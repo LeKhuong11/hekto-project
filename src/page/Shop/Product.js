@@ -1,4 +1,6 @@
+import { useEffect } from 'react';
 import { FaRegHeart, FaShoppingCart, FaStar } from 'react-icons/fa';
+import { Link } from 'react-router-dom';
 import './shop.scss'
 
 function Product(props) {
@@ -15,15 +17,19 @@ function Product(props) {
     //function add to cart
     const handleAddToCart = (product) => {
       console.log(product);
-    }
 
+    }
+    useEffect(() => {
+      window.scrollTo(0, 0);
+    }, []);
 
     return (
     <div className="shop-products">
         <div>
-          
-          <div style={{width: 250, justifyContent: 'center'}}>
+          <div style={{width: 250, justifyContent: 'center', cursor: 'pointer'}}>
+           <Link to={`detail/${product._id}`}>
             <img width={150} height={150} src={product.img} alt="" />
+           </Link>
           </div>
           <div>
               <h4>{product.name}</h4>

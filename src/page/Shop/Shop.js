@@ -75,7 +75,6 @@ function Shop() {
       const delDiscount = discount.filter(item => {
         return item !== value * 1
       })
-      console.log(delDiscount);
       if(delBrand.length === 0 && delDiscount.length === 0) { 
         setShowProduct(data)
       }
