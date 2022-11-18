@@ -17,6 +17,7 @@ function Product(props) {
         props.onClicked()
         let tempProduct = [];
         let getQuantity = 0;
+        
         const productAdded = {  
             id: product._id,
             name: product.name,

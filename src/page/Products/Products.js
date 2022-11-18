@@ -1,11 +1,12 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState, useContext } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
+import { toast } from 'react-toastify'
+import { getItems } from 'redux/dataSlice';
+import { AppContext } from 'context/AppContext';
 import Color from 'image/color.svg'
 import HeaderPage from 'components/Header-page/HeaderPage'
 import Product from './Product'
 import Introduce from 'components/introduce/Introduce'
-import { getItems } from 'redux/dataSlice';
-import { toast } from 'react-toastify'
 import Toast from 'components/ToastMessage/Toast'
 import './product.scss'
 
@@ -13,14 +14,29 @@ import './product.scss'
  function Products() {
   document.title = "Products"
   const dispatch = useDispatch()
+  const { search } = useContext(AppContext)
   
   const data = useSelector(state => state.data)
   const [product, setProduct] = useState(data.data);
 
+  //feature search
+  useEffect(() => {
+    if(search.length > 0){
+      const searchProduct = data.data.filter(item => {
+        return item.categories.includes(search.toLowerCase())
+      })
+      setProduct(searchProduct);
+    }
+    else {
+      setProduct(data.data);  
+    }
+  }, [search])
 
+  //when data from redux changed to set product  
   useEffect(() => {
     setProduct(data.data)
   }, [data])
+
 
   useEffect(() => {
     dispatch(getItems());

@@ -37,7 +37,6 @@ function FormAddProduct() {
         })
     }
 
-    console.log(values);
     const handleSendDataToSever = (e) => {
         e.preventDefault();
 

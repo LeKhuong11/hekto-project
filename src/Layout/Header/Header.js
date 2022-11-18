@@ -1,9 +1,11 @@
 import React, { useState } from 'react'
+import { useContext } from 'react';
 import { useSelector } from 'react-redux'
-import { Link, NavLink } from 'react-router-dom';
+import { Link, NavLink, useNavigate } from 'react-router-dom';
 import { FaBars, FaEnvelope, FaPhoneAlt, FaRegHeart, FaRegUser, FaSearch, FaShoppingCart } from 'react-icons/fa';
 import Hekto from 'image/Hekto.svg'
 import './header.scss'
+import { AppContext } from 'context/AppContext';
 
 const languages = [
   {
@@ -26,9 +28,14 @@ const languages = [
   }
 ]
 
+
 function Header() {
+  const navigate = useNavigate()
+  const { setSearch } = useContext(AppContext)
+
   const [renderMobile, setRenderMobile] = useState(false);
   const cartItemsLength = useSelector(state => state.cart)
+  
   
   //get user name
   const user = useSelector(state => state.user)
@@ -38,6 +45,11 @@ function Header() {
 
   }
 
+  const handleSearchProduct = (e) => {
+    navigate("../products")
+    setSearch(e.target.value)
+  }
+  
   const handleClickMobile = () => {
     setRenderMobile(!renderMobile)
   }
@@ -97,7 +109,7 @@ function Header() {
               <NavLink to="contact">Contact</NavLink>
             </div>
             <div className='header-search'>
-              <input type="text" />
+              <input type="text" placeholder='Enter somthing...' onChange={handleSearchProduct} />
               <div><FaSearch /></div>
             </div>
             <div className='nav-bar-icon'>

@@ -49,8 +49,10 @@ function Cart() {
   //kho co su thay doi trong cart se dispatch lai cartItems
   useEffect(() => {
     dispatch(cartUpdate(cartItems))
+    let totals = 0
     cartItems.forEach(item => {
-      setTotals( (item.quantity * item.price))
+      totals += item.quantity * item.price
+      setTotals(totals)
     });
   },[cartItems])
 
@@ -115,7 +117,7 @@ function Cart() {
                           </div>
                           <div>
                             <h4>Totals: </h4>
-                            <p>$219.00</p>
+                            <p>${totals + 60}.00</p>
                           </div>
 
                           <span>

@@ -1,11 +1,10 @@
 import { useState } from 'react'
+import { useEffect } from 'react'
 import { useSelector } from 'react-redux'
 import HeaderPage from 'components/Header-page/HeaderPage'
 import Introduce from 'components/introduce/Introduce'
 import Product from './Product'
-import { useEffect } from 'react'
 import './shop.scss'
-import { Link } from 'react-router-dom'
 
 function Shop() {
 
@@ -17,6 +16,7 @@ function Shop() {
   const [showProduct, setShowProduct] = useState(data);
   const [brand ,setBrand ] = useState([])
   const [discount, setDiscount ] = useState([])
+  const [categories, setCategories ] = useState([])
 
   useEffect(() => {
     setShowProduct(dataList.data)
@@ -46,7 +46,6 @@ function Shop() {
           setDiscount(newDiscount)
             
           if(brand.length !== 0){
-            console.log(brand);
             for(let i = 0; i < newDiscount.length; i++) {
               for(let j = 0; j < showProduct.length; j++){
                 if(showProduct[j].discouter === newDiscount[i]){
@@ -56,7 +55,6 @@ function Shop() {
             }
           }
           else {
-            console.log(discount);
             for(let i = 0; i < newDiscount.length; i++) {
               for(let j = 0; j < data.length; j++){
                 if(data[j].discouter === newDiscount[i])
@@ -64,6 +62,18 @@ function Shop() {
               }
             }
           }
+        }
+        if(name === "categories") {
+          const newCategory = [...categories, value]
+          setCategories(newCategory)
+          
+          for(let i = 0; i < newCategory.length; i++) {
+            for(let j = 0; j < data.length; j++){
+              if(data[j].categories === newCategory[i])
+                newProducts.push(data[j])
+            }
+          }
+          
         }
         setShowProduct(newProducts)
     }
@@ -74,11 +84,14 @@ function Shop() {
       const delDiscount = discount.filter(item => {
         return item !== value * 1
       })
+      const delCategories = categories.filter(item => {
+        return !item.includes(value)
+      })
+      
       if(delBrand.length === 0 && delDiscount.length === 0) { 
         setShowProduct(data)
       }
       else {
-     
           for(let i = 0; i < delBrand.length; i++) {
             for(let j = 0; j < data.length; j++){
               if(data[j].brand === delBrand[i])
@@ -95,8 +108,14 @@ function Shop() {
       }
       setBrand(delBrand)
       setDiscount(delDiscount)
+      setCategories(delCategories)
     }
   }
+
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
 
   //Brand
   const productsBrand = [
@@ -107,7 +126,7 @@ function Shop() {
     'Young Repurposed',
     'Green DIY furniture'
   ]
-  const categories = ['Bags', 'Watch', 'Camera', 'Headphone', 'Chair' ]
+  const productType = ['Bags', 'watch', 'Camera', 'Headphone', 'chair' ]
   return (
     <div className='shop'>
       <HeaderPage namePage="Shop Left Sidebar" />
@@ -148,7 +167,7 @@ function Shop() {
                 <div className='choose-type-categories'>
                 <h4>Categories</h4>
                     <form>
-                        {categories.map((item, index) => {
+                        {productType.map((item, index) => {
                           return <div key={item}>
                             <input onChange={handleCheckbox} type="checkbox" name="categories" value={item} />
                             <label>{item}</label> <br/> 
@@ -158,11 +177,11 @@ function Shop() {
                 </div>
               </div>
               <div className='show-product-list'>
-                  {showProduct && showProduct.map((item, index) => {
+                  {showProduct ? showProduct.map((item, index) => {
                     return <div  key={index}>
                         <Product key={index} data={item}/>
                     </div>
-                  })}
+                  }) : <h2>Khong co san pham</h2>}
               </div>
           </div>
         </div>

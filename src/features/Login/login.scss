@@ -1,3 +1,41 @@
+%input {
+    width: 75%;
+    height: 40px;
+    opacity: .75;    
+    margin: 10px 0;
+    padding: 3px 9px;
+    border-radius: 3px;
+    border-color: #1b62e6;
+}
+
+%inputFocus {
+    box-shadow: #1b62e6 0px 5px 15px;
+    outline: 0;
+    border-color: #1b62e6;
+}
+
+%inputSubmit{
+    background-color: rgb(248, 25, 122);
+    border: none;
+    outline: 0;
+    color: #fff;
+    font-size: 15px;
+    cursor: pointer;
+    margin: 20px 0 10px;
+    &:hover {
+        background-color: rgb(248, 2, 109);
+    }
+}
+
+%a {
+    font-size: 14px;
+    text-decoration: none;
+    color: rgb(104, 103, 103);
+    &:hover {
+        color: black;
+        text-decoration: underline;
+    }
+}
 .signin {
     width: 100%;
     display: flex;
@@ -13,55 +51,93 @@
 }
 
 .signin-login {
-    padding: 25px 0;
+    padding: 25px 0 50px;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
     &-form{
         width: 400px;
         height: 420px;
-        box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
-        text-align: center;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
         & h2 {
-            margin: 20px 0 0;
-            padding: 20px 0 0;
+            font-weight: 550;
+            color: #1d0b6d;
         }
-        & input{
-            width: 75%;
-            height: 40px;
-            opacity: .75;    
-            margin: 10px 0;
-            padding: 3px 9px;
-            border-radius: 3px;
-            border-color: #1b62e6;
+        & p {
+            font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
-        & input:focus {
-            // outline:#1b62e6 solid 2px;
-            box-shadow: #1b62e6 0px 5px 15px;
-            outline: 0;
-            border-color: #1b62e6;
-        }
-        & input[type='submit']{
-            background-color: rgb(248, 25, 122);
-            border: none;
-            outline: 0;
-            color: #fff;
-            font-size: 15px;
-            cursor: pointer;
-            margin: 20px 0;
-            &:hover {
-                background-color: rgb(248, 2, 109);
+        & form {
+            width: 400px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            & div {
+                margin: 3px 0;
+                width: 80%;
+                & input{
+                    @extend %input;
+                    width: 100%;
+                 }
+                 & input:focus {
+                     @extend %inputFocus;
+                 }
+                 & input[type='submit']{
+                     @extend %inputSubmit;
+                 }
             }
-        }
-        & a {
-            font-size: 14px;
-            text-decoration: none;
-            color: rgb(104, 103, 103);
-            &:hover {
-                color: black;
-                text-decoration: underline;
+            & a {
+               @extend %a;
             }
+            & .g-btn {
+                margin-bottom: 20px;
+            }
+            
         }
-        
     }
    
+}
+
+.signup {
+    display: flex;
+    justify-content: center;    
+    margin: 30px 0;
+    & .signup-form {
+        box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        & h2 {
+            font-weight: 550;
+            color: #1d0b6d;
+        }
+        & p {
+            font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        & form {
+            width: 400px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            & div {
+                margin: 3px 0;
+                width: 80%;
+                & input{
+                    @extend %input;
+                    width: 100%;
+                 }
+                 & input:focus {
+                     @extend %inputFocus;
+                 }
+                 & input[type='submit']{
+                     @extend %inputSubmit
+                 }
+            }
+            & a {
+                @extend %a
+             }
+        }
+    }
+    
 }
 
 

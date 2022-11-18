@@ -8,6 +8,8 @@ import { BrowserRouter } from 'react-router-dom';
 import { PersistGate } from 'redux-persist/integration/react';
 import { persistStore } from 'redux-persist';
 import store from 'redux/store';
+import { AppProvider } from 'context/AppContext';
+import { UserAuthContextProvider } from 'context/UserAuthContext';
 
 let persistor = persistStore(store)
 
@@ -17,7 +19,11 @@ root.render(
     <BrowserRouter>
       <Provider store={store}>
         <PersistGate persistor={persistor}>
-          <App />
+          <UserAuthContextProvider>
+            <AppProvider>
+              <App />
+            </AppProvider>
+          </UserAuthContextProvider>
         </PersistGate>
       </Provider>
     </BrowserRouter>

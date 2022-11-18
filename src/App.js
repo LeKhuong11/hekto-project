@@ -1,12 +1,10 @@
-import { Suspense, useEffect } from 'react';
+import { Suspense } from 'react';
 import { Route, Routes } from 'react-router-dom';
 import { publicRoutes } from 'routes';
 import Header from './Layout/Header/Header';
 import Footer from 'Layout/Footer/Footer';
-import { useDispatch } from 'react-redux'
 import Loading from 'features/Loading/Loading';
 import './App.css';
-import { ToastContainer } from 'react-toastify';
 
 
 function App() {

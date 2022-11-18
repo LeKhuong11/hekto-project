@@ -4,13 +4,11 @@ const userSlice = createSlice({
     name: 'user',
     initialState: {
         user: '',
-        password: '',
-        name: 'Khuong'
+        name: 'User1'
     },
     reducers: {
-        user: (state, action) => {
+        currentUser: (state, action) => {
             state.user = action.payload.user
-            state.password = action.payload.password
         },
         userLogout: (state) => {
             state.user = ''
@@ -19,5 +17,5 @@ const userSlice = createSlice({
     }
 })
 
-export const { user, userLogout } = userSlice.actions
+export const { currentUser, userLogout } = userSlice.actions
 export default userSlice.reducer
