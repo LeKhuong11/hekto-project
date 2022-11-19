@@ -39,9 +39,7 @@ function Header() {
   
   //get user name
   const user = useSelector(state => state.user)
-  const [userName, setUserName] = useState(user.name)
-
-  const handleChange = () => {
+  const handleChangeLanguage = () => {
 
   }
 
@@ -59,7 +57,7 @@ function Header() {
             <div className='header-contact'>
                 <div>
                   <FaEnvelope/> 
-                  <p>11lekhuong@gmail.com</p>
+                  <p>hekto@store.com</p>
                 </div>
                 <div>
                   <FaPhoneAlt/>
@@ -68,15 +66,15 @@ function Header() {
             </div>
             <div className='header-feature'>
               <div>
-                <select onChange={handleChange} className="header-language">
+                <select onChange={handleChangeLanguage} className="header-language">
                     {languages.map(option => (
                         <option key={option.language}>{option.language}</option>
                     ))}
                 </select>
               </div>
               <div>
-                 <Link to="login">
-                  <p style={{padding: 2}}>{user.user ? userName : "Login"}</p>
+                 <Link to={user.email ? "dashboard" : "login"}>
+                  <p style={{padding: 2}}>{user.email ? user.name : "Login"}</p>
                   <FaRegUser />
                  </Link>
               </div>
@@ -87,9 +85,9 @@ function Header() {
                 </Link>
               </div>
               <div>
-                <Link to="cart">
+                <Link to="cart">  
                   <FaShoppingCart />
-                  <p style={{margin: -7}}>[{cartItemsLength.data.length === 0 ? '' : cartItemsLength.data.length}]</p>
+                  <p style={{margin: -7}}>[{cartItemsLength.data.length === 0 ? 0 : cartItemsLength.data.length}]</p>
                 </Link>
               </div>
             </div>

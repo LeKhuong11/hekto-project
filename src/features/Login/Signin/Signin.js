@@ -33,8 +33,14 @@ function Signin() {
       }
   }
 
-  const handleGoogleSignIn = () => {
-
+  const handleGoogleSignIn = async () => {
+    try {
+      await googleSignIn()
+      navigate("../dashboard")
+    }
+    catch(err) {
+      setError(err.message)
+    }
   }
 
   useEffect(() => {

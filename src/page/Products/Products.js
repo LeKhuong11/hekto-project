@@ -25,6 +25,7 @@ import './product.scss'
       const searchProduct = data.data.filter(item => {
         return item.categories.includes(search.toLowerCase())
       })
+      console.log(searchProduct);
       setProduct(searchProduct);
     }
     else {

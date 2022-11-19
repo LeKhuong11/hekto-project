@@ -10,13 +10,14 @@ import {
 import { auth } from '../firebase'
 import { useDispatch } from 'react-redux'
 import { user } from 'redux/userSlice'
+import userAvatar from 'image/user.png'
 
 
 const userAuthContext = createContext();
 
 export function UserAuthContextProvider({ children }) {
     const dispatch = useDispatch();
-    const [user, setUser] = useState("");
+    const [userLogin, setUserLogin] = useState("");
 
     function signUp(email, password) {
         return createUserWithEmailAndPassword( auth, email, password)
@@ -36,14 +37,20 @@ export function UserAuthContextProvider({ children }) {
     }
     useEffect(() => {
         const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
-            setUser(currentUser)
+            setUserLogin(currentUser)
+            const userInfo = {
+                email: currentUser.email,
+                name: currentUser.displayName ? currentUser.displayName : 'User',
+                avatar: currentUser.photoURL ? currentUser.photoURL : userAvatar,
+            }
+            dispatch(user(userInfo))
         }) 
         return () => {
             unsubscribe();
         }
     }, [])
 
-    return <userAuthContext.Provider value={{user, signUp, logIn, logOut, googleSignIn}}>
+    return <userAuthContext.Provider value={{userLogin, signUp, logIn, logOut, googleSignIn}}>
         {children}
     </userAuthContext.Provider>
 }

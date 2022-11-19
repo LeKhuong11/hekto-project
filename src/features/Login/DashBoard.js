@@ -1,17 +1,35 @@
 import { useSelector, useDispatch } from 'react-redux'
+import { userLogout } from 'redux/userSlice'
+import { useNavigate } from 'react-router-dom'
+import { useUserAuth } from 'context/UserAuthContext'
 import HeaderPage from "components/Header-page/HeaderPage"
 import FormAddProduct from "./Form"
-import user from 'image/user.png'
+import { useEffect } from 'react'
 import './login.scss'
-import { userLogout } from 'redux/userSlice'
 
 function DashBoard() {
   const dispatch = useDispatch()
+  const navigate = useNavigate()
   const infoUser = useSelector(state => state.user)
+  const { logOut } = useUserAuth()
 
-  const handleClickLogout = () => {
-    dispatch(userLogout())
+  if(infoUser.email === null) {
+    navigate("../login")
   }
+
+  const handleClickLogout = async () => {
+    try {
+      await logOut();
+      dispatch(userLogout())
+      navigate("../login")
+    } catch (err) {
+      console.log(err.message);
+    }
+  }
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
   
   return (
     <div className="dashboard">
@@ -19,12 +37,17 @@ function DashBoard() {
       <div className="dashboard-body">
         <div>
           <div className="dashboard-body-person">
-            <img src={user} width={250} alt="" />
             <div>
-              <h4>{infoUser.name}</h4>
-              <button onClick={handleClickLogout}>Log out</button>
+              <img src={infoUser.avatar} width={250} alt="" />
+              <div>
+                <div style={{display: 'flex', fontSize: 20}}>
+                  <p style={{paddingRight: 5}}>Hello </p>
+                  <h4> {infoUser.name === 'User' ? infoUser.email : infoUser.name }</h4>
+                </div>
+                <button onClick={handleClickLogout}>Log out</button>
+              </div>
+              </div>
             </div>
-          </div>
           <div className="dashboard-body-form">
             <h3>Add Product</h3>
             <FormAddProduct />  

@@ -26,8 +26,11 @@ function Cart() {
 
   //clear cart
   const handleClearCart = () => {
-    dispatch(clearCart())
-    setCartItems([])
+    const confirm = window.confirm("Are you sure?");
+    if(confirm) {
+      dispatch(clearCart())
+      setCartItems([])
+    }
   }
 
   //hanlde set quantity
