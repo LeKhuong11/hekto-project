@@ -11,7 +11,7 @@ const Shop = lazy(() => import('page/Shop/Shop'));
 const Wishlist = lazy(() => import('features/Wishlist/Wishlist'));
 const Cart = lazy(() => import('features/Cart/Cart'));
 const Detail = lazy(() => import('page/Detail/Detail'));
-const DashBoard = lazy(() => import('features/Login/DashBoard'));
+const DashBoard = lazy(() => import('features/Login/Dashboard/DashBoard'));
 
 
 export const publicRoutes = [

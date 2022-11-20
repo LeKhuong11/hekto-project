@@ -3,9 +3,9 @@ import { userLogout } from 'redux/userSlice'
 import { useNavigate } from 'react-router-dom'
 import { useUserAuth } from 'context/UserAuthContext'
 import HeaderPage from "components/Header-page/HeaderPage"
-import FormAddProduct from "./Form"
+import FormAddProduct from "../Form"
 import { useEffect } from 'react'
-import './login.scss'
+import '../login.scss'
 
 function DashBoard() {
   const dispatch = useDispatch()

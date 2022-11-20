@@ -113,8 +113,7 @@ function Header() {
             <div className='nav-bar-icon'>
               <FaBars color='black' onClick={handleClickMobile}/>
             </div>
-        </div>
-        <div className='header-menu mobile'>
+            <div className=' mobile'>
                 {renderMobile && 
                   <div>
                     <NavLink to="/" end>Home</NavLink>
@@ -126,6 +125,7 @@ function Header() {
                   </div>
                 }
             </div>
+        </div>
     </div>
   )
 }

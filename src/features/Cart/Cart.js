@@ -2,7 +2,7 @@ import React, { useEffect } from 'react'
 import { useState } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import HeaderPage from 'components/Header-page/HeaderPage'
-import { cart, cartUpdate, clearCart } from 'redux/cartSlice';
+import { cartUpdate, clearCart } from 'redux/cartSlice';
 import Item from './Item'
 import './cart.scss'
 import 'components/Button/button.scss'

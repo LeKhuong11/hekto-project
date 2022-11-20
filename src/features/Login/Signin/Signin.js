@@ -1,23 +1,21 @@
 import { useEffect } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
-import { useSelector, useDispatch } from 'react-redux'
+import { useSelector } from 'react-redux'
 import { useState } from 'react';
 import { useUserAuth } from 'context/UserAuthContext';
 import { Alert } from 'react-bootstrap';
 import GoogleButton from "react-google-button";
 import HeaderPage from 'components/Header-page/HeaderPage'
 import Introduce from 'components/introduce/Introduce'
-import DashBoard from '../DashBoard'
-
+import DashBoard from '../Dashboard/DashBoard'
 import '../login.scss'
 
 function Signin() {
-  const dispatch = useDispatch()
   const navigate = useNavigate()
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
-  const { logIn, googleSignIn, user } = useUserAuth();
+  const { logIn, googleSignIn } = useUserAuth();
 
   const userCheck = useSelector(state => state.user)
 

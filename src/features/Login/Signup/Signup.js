@@ -9,7 +9,6 @@ function Signup() {
   const navigate = useNavigate()
 
   const [email, setEmail] = useState("");
-  const [userName, setUserName] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
 
@@ -33,7 +32,7 @@ function Signup() {
           <form className='' onSubmit={handleSubmitSignup}>
               <div>
                 <label>Input Your Name: </label> <br />
-                <input type='text' onChange={(e) => setUserName(e.target.value)} required placeholder='User Name...'/> <br/>
+                <input type='text' required placeholder='User Name...'/> <br/>
               </div>
               <div>
                 <label>Input Your Email: </label> <br />

@@ -38,12 +38,14 @@ export function UserAuthContextProvider({ children }) {
     useEffect(() => {
         const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
             setUserLogin(currentUser)
-            const userInfo = {
-                email: currentUser.email,
-                name: currentUser.displayName ? currentUser.displayName : 'User',
-                avatar: currentUser.photoURL ? currentUser.photoURL : userAvatar,
+            if(currentUser) {
+                const userInfo = {
+                    email: currentUser.email,
+                    name: currentUser.displayName ? currentUser.displayName : 'User',
+                    avatar: currentUser.photoURL ? currentUser.photoURL : userAvatar,
+                }
+                dispatch(user(userInfo))
             }
-            dispatch(user(userInfo))
         }) 
         return () => {
             unsubscribe();

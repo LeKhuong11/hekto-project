@@ -66,4 +66,31 @@
 }
 
 
+@media only screen and (max-width: 1024px) {
+
+}
+@media only screen and (max-width: 770px) {
+    .footer-top-content {
+        flex-direction: column;
+        justify-content: flex-start;
+        text-align: center;
+
+        & .footer-top-content-submit {
+            & input {
+                width: 300px;
+            }
+        }
+    }
+  
+}
+@media only screen and (max-width: 640px){
+
+}
+@media only screen and (max-width: 480px){
+
+}
+@media only screen and (max-width: 400px){
+
+}
+
 

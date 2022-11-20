@@ -58,7 +58,7 @@ function Product(props) {
   return (
     <div className='product'>
         <div className='product-image'>
-            <Link to={`detail/${_id}`}>
+            <Link to={`/products/detail/${_id}`}>
                 <img width={110} height={110} src={img} alt="" />
             </Link>
             <button onClick={() => handleToDetail(_id)}>View Detail</button>
