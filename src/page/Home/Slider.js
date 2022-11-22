@@ -1,6 +1,7 @@
 import React from 'react';
 import Carousel from 'react-bootstrap/Carousel';
 import Banner from './Banner';
+import Banner2 from './Banner2';
 import './home.scss'
 
 
@@ -12,7 +13,7 @@ function Slider() {
         </Carousel.Item>
 
         <Carousel.Item>
-          <Banner />
+          <Banner2 />
         </Carousel.Item>
 
         <Carousel.Item>

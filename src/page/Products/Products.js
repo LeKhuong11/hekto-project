@@ -1,7 +1,6 @@
 import React, { useEffect, useState, useContext } from 'react'
-import { useDispatch, useSelector } from 'react-redux'
+import { useSelector } from 'react-redux'
 import { toast } from 'react-toastify'
-import { getItems } from 'redux/dataSlice';
 import { AppContext } from 'context/AppContext';
 import Color from 'image/color.svg'
 import HeaderPage from 'components/Header-page/HeaderPage'
@@ -13,7 +12,6 @@ import './product.scss'
 
  function Products() {
   document.title = "Products"
-  const dispatch = useDispatch()
   const { search } = useContext(AppContext)
   
   const data = useSelector(state => state.data)
@@ -37,11 +35,6 @@ import './product.scss'
   useEffect(() => {
     setProduct(data.data)
   }, [data])
-
-
-  useEffect(() => {
-    dispatch(getItems());
-  }, [])
 
   const handleClickShowToastMessage = () => {
     //Show toast message

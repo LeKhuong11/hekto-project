@@ -214,3 +214,34 @@
 }
 
 
+
+
+.checkout {
+
+    &-body {
+        width: 100%;
+        margin-top: 50px;
+        &>div {
+            display: flex;
+            justify-content: center;
+            width: 100%;
+            & .form-checkout {
+                width: 50%;
+                & form {
+                    width: 90%;
+                }
+            }
+    
+            & .infor-cart {
+                margin: 0 20px;
+                width: 30%;
+                height: 300px;
+                background-color: #e7e7e7;
+                border-radius: 6px;
+    
+            }
+        }
+
+    }
+}
+

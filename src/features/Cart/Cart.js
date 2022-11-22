@@ -7,9 +7,11 @@ import Item from './Item'
 import './cart.scss'
 import 'components/Button/button.scss'
 import NotFoundCart from './NotFoundCart';
+import { useNavigate } from 'react-router-dom';
 
 function Cart() {
   const dispatch = useDispatch()
+  const navigate = useNavigate()
   //get info cart items
   const { data } = useSelector(state => state.cart)
 
@@ -58,6 +60,12 @@ function Cart() {
       setTotals(totals)
     });
   },[cartItems])
+
+
+  //checkout cart 
+  const hanldeCheckoutCart = () => {
+    navigate("checkout")
+  }
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -127,7 +135,7 @@ function Cart() {
                             <input type="checkbox" />
                             <label style={{fontSize: 14}}>Shipping & taxes calculated at checkout</label>
                           </span>
-                          <button>Proceed To Checkout</button>
+                            <button onClick={hanldeCheckoutCart}>Proceed To Checkout</button>
                         </div>
                     </div>
                   </td>

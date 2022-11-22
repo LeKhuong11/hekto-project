@@ -1,3 +1,4 @@
+import Checkout from 'features/Cart/Checkout';
 import { lazy } from 'react'
 const Contact = lazy(() => import('page/Contact/Contact'));
 const Signin = lazy(() => import('features/Login/Signin/Signin'));
@@ -54,6 +55,10 @@ export const publicRoutes = [
     {
         path: 'cart',
         component: Cart
+    },
+    {
+        path: 'cart/checkout',
+        component: Checkout
     },
     {
         path: 'dashboard',
