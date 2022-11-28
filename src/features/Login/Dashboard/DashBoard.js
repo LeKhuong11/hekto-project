@@ -19,9 +19,12 @@ function DashBoard() {
 
   const handleClickLogout = async () => {
     try {
-      await logOut();
-      dispatch(userLogout())
-      navigate("../login")
+      const confirmLogout = window.confirm("You want logout?")
+      if(confirmLogout) {
+        await logOut();
+        dispatch(userLogout())
+        navigate("../login")
+      }
     } catch (err) {
       console.log(err.message);
     }

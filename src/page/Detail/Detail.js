@@ -2,19 +2,20 @@ import { useNavigate, useParams } from 'react-router-dom'
 import { useState, useEffect } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import { FaFacebook, FaGithub, FaRegHeart, FaStar, FaTwitter } from 'react-icons/fa'
-import { toast } from 'react-toastify'
-import { cart } from 'redux/cartSlice'
 import Introduce from 'components/introduce/Introduce'
 import HeaderPage from 'components/Header-page/HeaderPage'
 import Toast from 'components/ToastMessage/Toast'
 import './detail.scss'
 import 'components/Button/button.scss'
+import addToCart from 'features/AddToCart/addToCart'
 
 
 function Detail() {
-  const userCheck = useSelector(state => state.user)
   const navigate = useNavigate();
   const dispatch = useDispatch();
+  const userCheck = useSelector(state => state.user)
+  const { data } = useSelector(state => state.cart)
+  let AllItems = [...data];
 
   const [product, setProduct] = useState([]);
   
@@ -40,28 +41,9 @@ function Detail() {
   }
   
   //butotn add to cart
-  const addToCart = (product) => {
-    toast.success('Wow added so easy!', {
-      position: "top-right",
-      autoClose: 1800,
-      hideProgressBar: false,
-      closeOnClick: true,
-      draggable: true,
-      progress: undefined,
-      theme: "light",
-    });
-
-    //create a object product new
-    const productAdded = {  
-      id: product._id,
-      name: product.name,
-      img: product.img,
-      size: product.size,
-      price: product.price,
-      quantity: 1
-  }
-    if(userCheck.user) {
-      dispatch(cart(productAdded))
+  const handleAddToCart = (product) => {
+    if(userCheck.email) {
+     addToCart(product, navigate, dispatch, AllItems);
     }
     else {
       const isLogin = window.confirm("Sign in to continue.")
@@ -97,7 +79,7 @@ function Detail() {
               </div>
               <h4>Color</h4>
               <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris tellus porttitor purus, et volutpat sit.</p>
-              <button className='button' onClick={() => addToCart(product)}>
+              <button className='button' onClick={() => handleAddToCart(product)}>
                 Add To Cart 
                 <FaRegHeart />
               </button>

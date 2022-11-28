@@ -1,5 +1,5 @@
-import Checkout from 'features/Cart/Checkout';
 import { lazy } from 'react'
+import Checkout from 'features/Cart/Checkout/Checkout';
 const Contact = lazy(() => import('page/Contact/Contact'));
 const Signin = lazy(() => import('features/Login/Signin/Signin'));
 const Signup = lazy(() => import('features/Login/Signup/Signup'));

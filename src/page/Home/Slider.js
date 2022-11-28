@@ -17,7 +17,12 @@ function Slider() {
         </Carousel.Item>
 
         <Carousel.Item>
-          <Banner />
+          <div className='home-backgroundImg'>
+              <div>
+                <h1>Get Leatest Update By Subscribe 0ur Newslater Shop Now</h1>
+                <button className='button'>Shop Now</button>
+              </div>
+          </div>
         </Carousel.Item>
       </Carousel>
     );

@@ -1,12 +1,12 @@
 import { Suspense, useEffect } from 'react';
 import { Route, Routes } from 'react-router-dom';
 import { publicRoutes } from 'routes';
+import { useDispatch } from 'react-redux';
+import { getItems } from 'redux/dataSlice';
 import Header from './Layout/Header/Header';
 import Footer from 'Layout/Footer/Footer';
 import Loading from 'features/Loading/Loading';
 import './App.css';
-import { useDispatch } from 'react-redux';
-import { getItems } from 'redux/dataSlice';
 
 
 function App() {

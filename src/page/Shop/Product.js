@@ -1,16 +1,16 @@
-import { useEffect } from 'react';
 import { FaRegHeart, FaShoppingCart, FaStar } from 'react-icons/fa';
-import { Link } from 'react-router-dom';
-import { toast } from 'react-toastify';
+import { Link, useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
-import { cart, cartUpdate } from 'redux/cartSlice';
 import Toast from 'components/ToastMessage/Toast';
+import addToCart from 'features/AddToCart/addToCart';
 import './shop.scss'
 
 
 function Product(props) {
     const product = props.data;
     const dispatch = useDispatch();
+    const navigate = useNavigate();
+    const userCheck = useSelector(state => state.user)
     const { data } = useSelector(state => state.cart)
     let AllItems = [...data];
 
@@ -24,51 +24,14 @@ function Product(props) {
 
     //function add to cart
     const handleClickAddToCart = (product) => {
-      //Toast Message
-      toast.success('Wow added so easy!', {
-        position: "top-right",
-        autoClose: 1800,
-        hideProgressBar: false,
-        closeOnClick: true,
-        draggable: true,
-        progress: undefined,
-        theme: "light",
-      });
-
-
-      let tempProduct = [];
-      let getQuantity = 0;
-      const productAdded = {  
-          id: product._id,
-          name: product.name,
-          img: product.img,
-          size: product.size,
-          price: product.price,
-          quantity: 1
-      }
-      if(data) {
-          tempProduct = AllItems.filter(item => {
-              return item.id.includes(productAdded.id)
-          })
-      }
-      
-       //kiem tra neu trong mang co trung nhau thi tang so luong len va xoa phan tu
-      if(tempProduct.length >= 1){
-          getQuantity = tempProduct[0].quantity;
-          productAdded.quantity = getQuantity + 1
-
-          // xoa san pham bi trung sau do update san pham moi len localStorage da cap nhat so luong va gia
-          for (let i = 0; i < AllItems.length; i++) {
-              if(AllItems[i].id === productAdded.id) {    
-                  AllItems.splice(i, 1);
-              }
-          }
-          AllItems.push(productAdded)
-          dispatch(cartUpdate(AllItems))
+      if(userCheck.email) {
+        addToCart(product, navigate, dispatch, AllItems);
       }
       else {
-          dispatch(cart(productAdded))
-      }
+          const isLogin = window.confirm("Sign in to continue.")
+          if(isLogin)
+          navigate("/login")
+      }   
   }   
 
     return (

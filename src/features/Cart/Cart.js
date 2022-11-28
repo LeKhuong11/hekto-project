@@ -1,13 +1,12 @@
-import React, { useEffect } from 'react'
-import { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
-import HeaderPage from 'components/Header-page/HeaderPage'
+import { useNavigate } from 'react-router-dom';
 import { cartUpdate, clearCart } from 'redux/cartSlice';
+import HeaderPage from 'components/Header-page/HeaderPage'
+import NotFoundCart from './NotFoundCart';
 import Item from './Item'
 import './cart.scss'
 import 'components/Button/button.scss'
-import NotFoundCart from './NotFoundCart';
-import { useNavigate } from 'react-router-dom';
 
 function Cart() {
   const dispatch = useDispatch()

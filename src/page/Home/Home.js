@@ -11,12 +11,16 @@ import premium from 'image/about/premium-quality.svg'
 import cashback from 'image/about/cashback.svg'
 import support24h from 'image/about/24-hours-support.svg'
 import room1 from 'image/home/room1.svg';
-import './home.scss'
-import 'components/Button/button.scss'
+import room2 from 'image/home/room2.svg';
+import room3 from 'image/home/room3.svg';
 import { useEffect } from 'react'
 import { toast } from 'react-toastify'
 import Toast from 'components/ToastMessage/Toast'
 import Banner2 from './Banner2'
+import { FaRegCalendarAlt, FaRegUser } from 'react-icons/fa'
+import './home.scss'
+import 'components/Button/button.scss'
+import Introduce from 'components/introduce/Introduce'
 
 const listImg = [
   {
@@ -100,7 +104,7 @@ function Home() {
       <div className='home-product'>
         <div className='home-product-slides'>
           <h1>Featured Product</h1>
-          <div>
+          <div className='button-slides'>
               <FaChevronLeft onClick={handleClickPrev} />
             <div className='home-product-slideshow'>
               <div className='home-product-list' style={slider.styles}>
@@ -109,7 +113,7 @@ function Home() {
                 })}
               </div>
             </div>
-                <FaChevronRight onClick={handleClickNext} />
+              <FaChevronRight onClick={handleClickNext} />
           </div>
         </div>
         <div className='home-product-intro'>
@@ -121,24 +125,64 @@ function Home() {
           </div>
         </div>
         <Banner2 />
+        <Introduce />
+        <div className='home-backgroundImg'>
+            <div>
+              <h1>Get Leatest Update By Subscribe 0ur Newslater Shop Now</h1>
+              <button className='button'>Shop Now</button>
+            </div>
+        </div>
         <div className='home-product-room'>
+            <h1>Leatest Blog</h1>
           <div>
-            <h1>leatest Blog</h1>
             <div className='room-detail'>
               <div> 
                 <div>
                   <img src={room1} alt='' />
-                  <span>Saber Ali</span>
-                  <span>21 August, 2020</span>
+                  <div style={{margin: 10}}>
+                    <span><FaRegUser color='#FB2E86' /> Saber Ali</span>
+                    <span><FaRegCalendarAlt color="yellow" /> 21 August, 2020</span>
+                  </div>
                 </div>
+                <div className='title-room'>
+                  <h5>Top essential Trends in 2021</h5>
+                  <p>More off this less hello samlande lied much over tightly circa horse taped mightly</p>
+                </div>
+              </div>
+            </div>
+            <div className='room-detail'>
+              <div> 
                 <div>
-                  <h4>Top essential Trends in 2021</h4>
+                  <img src={room2} alt='' />
+                  <div style={{margin: 10}}>
+                    <span><FaRegUser color='#FB2E86' /> Surfauxion</span>
+                    <span><FaRegCalendarAlt color="yellow" /> 16 August, 2021</span>
+                  </div>
+                </div>
+                <div className='title-room'>
+                  <h5>Top essential Trends in 2021</h5>
+                  <p>More off this less hello samlande lied much over tightly circa horse taped mightly</p>
+                </div>
+              </div>
+            </div>
+            <div className='room-detail'>
+              <div> 
+                <div>
+                  <img src={room3} alt='' />
+                  <div style={{margin: 10}}>
+                    <span><FaRegUser color='#FB2E86' /> Ali</span>
+                    <span><FaRegCalendarAlt color="yellow" /> 19 August, 2020</span>
+                  </div>
+                </div>
+                <div className='title-room'>
+                  <h5>Top essential Trends in 2021</h5>
                   <p>More off this less hello samlande lied much over tightly circa horse taped mightly</p>
                 </div>
               </div>
             </div>
           </div>
         </div>
+        
       </div>
       <Toast />
     </div>

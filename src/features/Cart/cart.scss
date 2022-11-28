@@ -233,12 +233,35 @@
             }
     
             & .infor-cart {
-                margin: 0 20px;
                 width: 30%;
-                height: 300px;
-                background-color: #e7e7e7;
-                border-radius: 6px;
-    
+                &>div {
+                    width: 100%;
+                    margin: 0;
+                    height: 330px;
+                    background-color: #e7e7e7;
+                    border-radius: 6px;
+                    overflow-y: scroll;
+                    padding: 25px 0;
+                    & .product-checkout {
+                        display: flex;
+                        justify-content: space-between;
+                        height: 70px;
+                        border-bottom: 1px solid #fd6aaa;
+                        padding: 7px 10px;
+                        width: 90%;
+                        margin: 0 auto;
+                        & div:first-child {
+                            width: 70%;
+                        }
+                        & img {
+                            margin-right: 6px;
+                        }
+                        & p {
+                            font-weight: 550;
+                        }
+                    }
+        
+                }
             }
         }
 

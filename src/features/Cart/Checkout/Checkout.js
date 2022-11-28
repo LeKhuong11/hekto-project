@@ -1,11 +1,16 @@
-import React from 'react'
+import React, { useState } from 'react'
+import { useSelector } from 'react-redux';
 import { Form, Row, Col, FormGroup, Label, Input, Button } from 'reactstrap' ;
 import HeaderPage from 'components/Header-page/HeaderPage';
+import trunk from 'image/about/trunk.svg'
 import 'bootstrap/dist/css/bootstrap.min.css';
-import './cart.scss'
+import '../cart.scss'
+import ItemCheckout from './ItemCheckout';
 
 
 function Checkout() {
+    const { data } = useSelector(state => state.cart)
+    const [ cartItems, setCartItems] = useState(data)
   return (
     <div className='checkout'>
         <div className='checkout-header'>
@@ -118,7 +123,17 @@ function Checkout() {
                     </Form>
                 </div>
                 <div className='infor-cart'>
-                    
+                    <h4>Cart Items</h4>
+                    <div>
+                        {cartItems.map((item, index) => {
+                            return <ItemCheckout 
+                                        img={item.img} 
+                                        name={item.name}
+                                        price={item.price}
+                                        quantity={item.quantity}
+                                    />
+                        })}
+                    </div>
                 </div>
             </div>
         </div>
