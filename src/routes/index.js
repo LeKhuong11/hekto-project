@@ -13,6 +13,7 @@ const Wishlist = lazy(() => import('features/Wishlist/Wishlist'));
 const Cart = lazy(() => import('features/Cart/Cart'));
 const Detail = lazy(() => import('page/Detail/Detail'));
 const DashBoard = lazy(() => import('features/Login/Dashboard/DashBoard'));
+const OrderSusscess = lazy(() => import('features/Cart/Checkout/OrderSusscess'));
 
 
 export const publicRoutes = [
@@ -59,6 +60,10 @@ export const publicRoutes = [
     {
         path: 'cart/checkout',
         component: Checkout
+    },
+    {
+        path: 'cart/checkout/order-susscess',
+        component: OrderSusscess
     },
     {
         path: 'dashboard',

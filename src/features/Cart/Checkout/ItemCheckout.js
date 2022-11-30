@@ -8,7 +8,7 @@ function ItemCheckout(props) {
             <p>{props.name}</p>
         </div>
         <div>
-            <p>{props.price}</p>
+            <p>${props.price}.00</p>
             <p>Qty: {props.quantity}</p>
         </div>
     </div>

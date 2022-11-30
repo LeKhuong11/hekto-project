@@ -86,6 +86,9 @@
                                 color: antiquewhite;
                                 border-radius: 5px;
                             }
+                            & .button {
+                                width: 100px;
+                            }
                         }
                         & td:last-child {
                             width: 100px
@@ -238,7 +241,7 @@
                     width: 100%;
                     margin: 0;
                     height: 330px;
-                    background-color: #e7e7e7;
+                    background-color: #faf9f9;
                     border-radius: 6px;
                     overflow-y: scroll;
                     padding: 25px 0;
@@ -246,7 +249,7 @@
                         display: flex;
                         justify-content: space-between;
                         height: 70px;
-                        border-bottom: 1px solid #fd6aaa;
+                        border-bottom: 1px solid #cccbcb;
                         padding: 7px 10px;
                         width: 90%;
                         margin: 0 auto;
@@ -258,6 +261,8 @@
                         }
                         & p {
                             font-weight: 550;
+                            font-size: 14px;
+                            margin: 2px;
                         }
                     }
         
@@ -265,6 +270,28 @@
             }
         }
 
+    }
+}
+
+.order-susscess {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    &>div:nth-child(2) {
+        width: 50%;
+        text-align: center;
+        height: 250px;
+        margin-top: 50px;
+        & h2 {
+            margin: 15px 0;
+            color: #101750;
+            
+        }
+        & p {
+            color: #afaeae;
+        }
     }
 }
 
