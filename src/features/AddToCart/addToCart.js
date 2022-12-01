@@ -2,14 +2,14 @@ import { toast } from 'react-toastify';
 import { cart, cartUpdate } from 'redux/cartSlice';
 
 function addToCart(product, navigate, dispatch, AllItems) {
-toast.success('Wow added so easy!', {
-    position: "top-right",
-    autoClose: 1800,
-    hideProgressBar: false,
-    closeOnClick: true,
-    draggable: true,
-    progress: undefined,
-    theme: "light",
+    toast.success('Wow added so easy!', {
+        position: "top-right",
+        autoClose: 1800,
+        hideProgressBar: false,
+        closeOnClick: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
     });
 
   

@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { useContext } from 'react';
 import { useSelector } from 'react-redux'
 import { Link, NavLink, useNavigate } from 'react-router-dom';
@@ -35,7 +35,17 @@ function Header() {
 
   const [renderMobile, setRenderMobile] = useState(false);
   const cartItemsLength = useSelector(state => state.cart)
-  
+
+  const [windowWidth, setWindowWidth] = useState(window.innerWidth)
+  const setWindowDimensions = () => {
+    setWindowWidth(window.innerWidth)
+  }
+  useEffect(() => {
+    window.addEventListener('resize', setWindowDimensions);
+    return () => {
+      window.removeEventListener('resize', setWindowDimensions)
+    }
+  }, [])
   
   //get user name
   const user = useSelector(state => state.user)
@@ -49,6 +59,7 @@ function Header() {
   }
   
   const handleClickMobile = () => {
+    console.log('aa');
     setRenderMobile(!renderMobile)
   }
   return (
@@ -98,23 +109,27 @@ function Header() {
                 <img src={Hekto} alt="" title="logo" />    
               </Link>
             </div>
-            <div className='header-menu'>
-              <NavLink to="/" end>Home</NavLink>
-              <NavLink to="products">Products</NavLink>
-              <NavLink to="shop">Shop</NavLink>
-              <NavLink to="blog">Blog</NavLink>
-              <NavLink to="about">About</NavLink>
-              <NavLink to="contact">Contact</NavLink>
-            </div>
-            <div className='header-search'>
-              <input type="text" placeholder='Enter somthing...' onChange={handleSearchProduct} />
-              <div><FaSearch /></div>
-            </div>
-            <div className='nav-bar-icon'>
-              <FaBars color='black' onClick={handleClickMobile}/>
-            </div>
+            {windowWidth > 900 &&
+              <div className='header-menu'>
+                {console.log(renderMobile)},
+                <NavLink to="/" end>Home</NavLink>
+                <NavLink to="products">Products</NavLink>
+                <NavLink to="shop">Shop</NavLink>
+                <NavLink to="blog">Blog</NavLink>
+                <NavLink to="about">About</NavLink>
+                <NavLink to="contact">Contact</NavLink>
+              </div> 
+            }
+            {windowWidth > 900 ? 
+              <div className='header-search'>
+                <input type="text" placeholder='Enter somthing...' onChange={handleSearchProduct} />
+                <div><FaSearch /></div>
+              </div> :
+              <div className='nav-bar-icon' onClick={handleClickMobile}>
+                <FaBars color='black' />
+              </div> }
             <div className=' mobile'>
-                {renderMobile && 
+                { windowWidth < 900 && renderMobile && 
                   <div>
                     <NavLink to="/" end>Home</NavLink>
                     <NavLink to="products">Products</NavLink>

@@ -8,8 +8,7 @@ import cartReducer from "./cartSlice";
 
 const persistConfig = {
     key: 'root',
-    version: 1,
-    storage,
+    storage: storage,
 }
 
 const reducer = combineReducers({
@@ -22,4 +21,8 @@ const persistedReducer = persistReducer(persistConfig, reducer)
 
 export default configureStore({
     reducer:  persistedReducer,
+   middleware: getDefaultMiddleware =>
+    getDefaultMiddleware({
+      serializableCheck: false,
+    }),
 })

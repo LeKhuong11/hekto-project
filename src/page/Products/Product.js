@@ -23,7 +23,7 @@ function Product(props) {
             if(isLogin)
             navigate("/login")
         }   
-    }   
+    }  
 
     const handleToDetail = (id) => {
         navigate(`products/detail/${id}`)
@@ -39,7 +39,7 @@ function Product(props) {
         </div>
         <div className='product-icon' style={changeStyle ? {top: 0, display: 'flex', color: '#1389FF'} : {flexDirection: 'column'}} >
             <FaShoppingCart onClick={(e) => handleClickAddToCart(props.product)} />
-            <FaRegHeart />
+            <FaRegHeart onClick={props.onClickedToWishList} />
             <FaSistrix />
         </div>
         <div className='product-info'>

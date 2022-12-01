@@ -1,6 +1,6 @@
 import React, { useEffect, useState, useContext } from 'react'
 import { useSelector } from 'react-redux'
-import { toast } from 'react-toastify'
+import { toast, ToastContainer } from 'react-toastify'
 import { AppContext } from 'context/AppContext';
 import Color from 'image/color.svg'
 import HeaderPage from 'components/Header-page/HeaderPage'
@@ -36,17 +36,29 @@ import './product.scss'
     setProduct(data.data)
   }, [data])
 
-  const handleClickShowToastMessage = () => {
-    //Show toast message
-    toast.success('Wow added so easy!', {
+  // const handleClickShowToastMessage = () => {
+  //   //Show toast message
+  //   toast.success('Wow added so easy!', {
+  //     position: "top-right",
+  //     autoClose: 1800,
+  //     hideProgressBar: false,
+  //     closeOnClick: true,
+  //     draggable: true,
+  //     progress: undefined,
+  //     theme: "light",
+  //   });
+  // }
+  const handleClickToWishList = () => {
+    toast.warn("We're sorry, this feature hasn't been developed yet!", {
       position: "top-right",
-      autoClose: 1800,
+      autoClose: 5000,
       hideProgressBar: false,
       closeOnClick: true,
+      pauseOnHover: true,
       draggable: true,
       progress: undefined,
-      theme: "light",
-    });
+      theme: "colored",
+      });
   }
 
   useEffect(() => {
@@ -62,7 +74,7 @@ import './product.scss'
           <p>About {product.length} result (0.62 seconds)</p>
           <div>
             {product && product.map((item, index) => (
-              <Product onClicked={handleClickShowToastMessage} key={index} product={item} color={Color} />
+              <Product onClickedToWishList={handleClickToWishList} key={index} product={item} color={Color} />
             ))}
           </div>
         </div>
@@ -70,6 +82,18 @@ import './product.scss'
           <Introduce />
         </div>
           <Toast />
+          <ToastContainer
+            position="top-right"
+            autoClose={5000}
+            hideProgressBar={false}
+            newestOnTop={false}
+            closeOnClick
+            rtl={false}
+            pauseOnFocusLoss
+            draggable
+            pauseOnHover
+            theme="colored"
+          />
         </div>
       }
     </div>
