@@ -82,18 +82,6 @@ import './product.scss'
           <Introduce />
         </div>
           <Toast />
-          <ToastContainer
-            position="top-right"
-            autoClose={5000}
-            hideProgressBar={false}
-            newestOnTop={false}
-            closeOnClick
-            rtl={false}
-            pauseOnFocusLoss
-            draggable
-            pauseOnHover
-            theme="colored"
-          />
         </div>
       }
     </div>

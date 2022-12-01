@@ -10,9 +10,9 @@ function Product(props) {
     const navigate = useNavigate()
     const { _id, img, name, price } = props.product;
     const { color, changeStyle } = props;
+    const userCheck = useSelector(state => state.user)
     const { data } = useSelector(state => state.cart)
     let AllItems = [...data];
-    const userCheck = useSelector(state => state.user)
 
     const handleClickAddToCart = (product) => {
         if(userCheck.email) {

@@ -111,7 +111,6 @@ function Header() {
             </div>
             {windowWidth > 900 &&
               <div className='header-menu'>
-                {console.log(renderMobile)},
                 <NavLink to="/" end>Home</NavLink>
                 <NavLink to="products">Products</NavLink>
                 <NavLink to="shop">Shop</NavLink>
