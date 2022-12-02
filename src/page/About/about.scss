@@ -5,7 +5,7 @@
         flex-direction: column;
         justify-content: center;
         align-items: center;
-        &>div {
+        &>div:first-child {
             color: #151875;
             width: 70%;
             display: flex;
@@ -19,6 +19,18 @@
                 color: rgb(97, 96, 96);
                 font-size: 13px;
             }
+        }
+
+        &>div:nth-child(3) {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            &>div {
+                margin-top: 15px;
+            }
+        }
+        &>div:nth-child(5) {
+            display: flex;
         }
 
     }
@@ -47,4 +59,31 @@
     &:hover {
         border-bottom: 1px solid #FF9100;
     }
+}
+
+@media only screen and (max-width: 1024px) {
+    .about-body > div:first-child {
+        width: 90%;
+    }
+}
+@media only screen and (max-width: 770px) {
+    .about-body > div:nth-child(1) {
+        width: 70%;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+
+        &>div {
+            margin-top: 25px;
+        }
+    }
+}
+@media only screen and (max-width: 640px){
+
+}
+@media only screen and (max-width: 480px){
+
+}
+@media only screen and (max-width: 400px){
+
 }

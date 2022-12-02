@@ -1,3 +1,4 @@
+import { useEffect } from 'react';
 import HeaderPage from 'components/Header-page/HeaderPage'
 import EllipseViolet from 'image/contact/Ellipse41.svg';
 import EllipsePink from 'image/contact/Ellipse42.svg';
@@ -6,9 +7,7 @@ import EllipseYellow from 'image/contact/Ellipse46.svg';
 import EllipseGreen from 'image/contact/Ellipse47.svg';
 import contactImg from 'image/contact/contact-image.svg' 
 import './contact.scss'
-import 'features/reponsive/reponsive.scss'
 import 'components/Button/button.scss'
-import { useEffect } from 'react';
 
 function Contact() {
 
@@ -16,6 +15,7 @@ function Contact() {
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
+  
   return (
     <div className='contact'>
       <HeaderPage namePage="Contact US" />

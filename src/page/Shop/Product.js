@@ -37,7 +37,7 @@ function Product(props) {
     return (
     <div className="shop-products">
         <div>
-          <div style={{width: 250, justifyContent: 'center', cursor: 'pointer'}}>
+          <div className='detail-img'>
            <Link to={`detail/${product._id}`}>
             <img width={150} height={150} src={product.img} alt="" />
            </Link>

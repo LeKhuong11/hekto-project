@@ -83,3 +83,103 @@
         }
     }
 }
+
+
+@media only screen and (max-width: 1000px) {
+
+    //Contact Page
+    .contact {
+        &-body {
+            &-info {
+                width: 90%;
+            }
+        }
+        &-form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+
+            &-submit {
+                width: 90%;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                margin-bottom: 50px;
+                & form {
+                    width: 90%;
+                    text-align: center;
+                    & input[name="subject"]{
+                        width: 80%;
+                        padding: 5px;
+                    }
+                    & textarea {
+                        width: 80%;
+                        height: 120px;
+                        padding: 5px;
+                        margin: 0 20px 20px 0;
+                    }
+                }
+            }
+        }
+
+    }
+}
+
+@media only screen and (max-width: 900px) {
+    .contact {
+        &-body{
+
+            &-info {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                
+                & div {
+                    width: 90%;
+                }
+                & span {
+                    width: 80%;
+                }
+            }
+            &-way {
+                margin-top: 50px;
+            }
+        }
+        &-form {
+            width: 100%;
+
+            &-image {
+                & img {
+                    width: 380px;
+                    
+                }
+            }
+        }
+    }
+}
+
+
+@media only screen and (max-width: 700px) {
+    .contact {
+        &-body {
+            &-way {
+                width: 100%;
+                &>div {
+                    margin: 0;
+                    display: flex;
+                    justify-content: space-between;
+                    & span {
+                        width: 100%;
+                    }
+                }
+            }
+        }
+    }
+
+}
+
+@media only screen and (max-width: 600px) {
+    .contact-body-way > div {
+        flex-direction: column;
+    }
+}

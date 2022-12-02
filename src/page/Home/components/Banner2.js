@@ -3,7 +3,7 @@ import productTrending from 'image/home/productTrending.svg'
 import EllipseViolet from 'image/contact/Ellipse41.svg';
 import EllipsePink from 'image/contact/Ellipse42.svg';
 import EllipseBlue from 'image/contact/Ellipse43.svg';
-import './home.scss'
+import '../home.scss'
 
 function Banner2() {
   return (

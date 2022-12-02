@@ -53,6 +53,7 @@
 .signin-login {
     padding: 25px 0 50px;
     box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+    margin-top: 2em;
     &-form{
         width: 400px;
         height: 420px;
@@ -190,3 +191,30 @@
         }
     }
 }
+
+@media only screen and (max-width: 770px) {
+    .dashboard-body-form {
+        width: 80%;
+    }
+}
+@media only screen and (max-width: 640px){
+    .dashboard-body-form {
+        width: 90%;
+    }
+}
+@media only screen and (max-width: 480px){
+    .dashboard-body-form {
+        width: 100%;
+    }
+    .dashboard-body-person > div {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        &>div {
+            margin-top: 15px;
+        }
+    }
+}
+
+
+

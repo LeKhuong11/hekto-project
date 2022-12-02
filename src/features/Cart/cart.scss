@@ -373,6 +373,13 @@
             width: 95%;
         }
     }
+    .notfound-cart {
+        
+        & svg {
+            width: 350px;
+            height: auto;
+        }
+    }
 }
 @media only screen and (max-width: 480px){
     .checkout-body > div { 
@@ -387,6 +394,13 @@
         & .infor-cart {
             width: 90%;
             order: 1;
+        }
+    }
+    .notfound-cart {
+        
+        & svg {
+            width: 250px;
+            height: 280px;
         }
     }
 }

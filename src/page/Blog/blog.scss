@@ -13,6 +13,9 @@
             &>div {
                 width: 80%;
                 margin-bottom: 55px;
+                & img {
+                    width: 90%;
+                }
                 &>div {
                     margin: 20px 0;
                     & span {
@@ -55,10 +58,12 @@
            
             &>div {
                 width: 100%;
+               
             }
         }
     }
 }
+
 @media only screen and (max-width: 770px) {
   
 }

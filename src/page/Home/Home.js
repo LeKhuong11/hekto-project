@@ -3,7 +3,7 @@ import { useState } from 'react'
 import { useSelector } from 'react-redux'
 import { FaChevronLeft, FaChevronRight } from 'react-icons/fa'
 import Product from 'page/Products/Product'
-import Slider from './Slider'
+import Slider from './components/Slider'
 import Intro from 'page/About/Intro';
 import Color from 'image/home/color.svg';
 import trunk from 'image/about/trunk.svg'
@@ -16,7 +16,7 @@ import room3 from 'image/home/room3.svg';
 import { useEffect } from 'react'
 import { toast } from 'react-toastify'
 import Toast from 'components/ToastMessage/Toast'
-import Banner2 from './Banner2'
+import Banner2 from './components/Banner2'
 import { FaRegCalendarAlt, FaRegUser } from 'react-icons/fa'
 import './home.scss'
 import 'components/Button/button.scss'

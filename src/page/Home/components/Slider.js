@@ -2,7 +2,7 @@ import React from 'react';
 import Carousel from 'react-bootstrap/Carousel';
 import Banner from './Banner';
 import Banner2 from './Banner2';
-import './home.scss'
+import '../home.scss'
 
 
 function Slider() {

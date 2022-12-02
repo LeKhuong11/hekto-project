@@ -57,6 +57,11 @@
                                 font-size: 17px;
                                 font-weight: 550;
                             }
+                            & .detail-img {
+                                width: 250;
+                                justify-content: 'center';
+                                cursor: 'pointer'
+                            }
                         }
                         &-price {
                             display: flex;
@@ -128,7 +133,18 @@
     }
 }
 @media only screen and (max-width: 480px){
-
+    .shop-body-content .show-product-list > div .shop-products {
+        height: 150px;
+        &>div:nth-child(1) {
+            & .detail-img {
+                width: 130px;
+            }
+        }
+        & img {
+            width: 90px;
+            height: auto;
+        }
+    }
 }
 @media only screen and (max-width: 400px){
 
