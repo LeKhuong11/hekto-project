@@ -23,7 +23,7 @@ function Detail() {
   const { id } = useParams();
 
   useEffect(() => {
-    fetch(`https://fe21-db.herokuapp.com/hekto/${id}`)
+    fetch(`https://fe21-db.vercel.app/hekto/${id}`)
       .then(res => {
         return res.json()
       })

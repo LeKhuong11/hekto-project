@@ -3,7 +3,7 @@ import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 export const getItems = createAsyncThunk(
     'data/getItems', 
     async () => {
-        return await fetch('https://fe21-db.herokuapp.com/hekto')
+        return await fetch('https://fe21-db.vercel.app/hekto')
             .then(res => res.json())
     }
 )
