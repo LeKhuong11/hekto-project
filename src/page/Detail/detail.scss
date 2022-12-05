@@ -76,3 +76,40 @@
         
     }
 }
+
+@media only screen and (max-width: 1024px) {
+    .detail-body {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        &-image {
+            
+            flex-direction: column-reverse  ;
+            &>div {
+                flex-direction: row;
+
+                & img {
+                    margin: 0 1rem;
+                }
+            }
+        }
+    }
+}
+@media only screen and (max-width: 770px) {
+  
+}
+@media only screen and (max-width: 640px){
+    .detail-body-image {
+       &>div {
+        & img {
+            margin: 0 5px;
+        }
+       }
+    }
+}
+@media only screen and (max-width: 480px){
+
+}
+@media only screen and (max-width: 400px){
+
+}

@@ -15,12 +15,13 @@ import room2 from 'image/home/room2.svg';
 import room3 from 'image/home/room3.svg';
 import { useEffect } from 'react'
 import { toast } from 'react-toastify'
-import Toast from 'components/ToastMessage/Toast'
-import Banner2 from './components/Banner2'
 import { FaRegCalendarAlt, FaRegUser } from 'react-icons/fa'
+import Toast from 'components/ToastMessage/Toast'
+import Banner2 from './components/BannerProduct'
+import Introduce from 'components/introduce/Introduce'
+import BannerToShop from './components/BannerToShop'
 import './home.scss'
 import 'components/Button/button.scss'
-import Introduce from 'components/introduce/Introduce'
 
 const listImg = [
   {
@@ -61,20 +62,6 @@ function Home() {
     const products = document.querySelectorAll(".product")
     const productList = document.querySelector(".home-product-list")
     productList.appendChild(products[0])
-    // const product = document.querySelector(".product")
-    // let item = {}
-    
-    // if(count < (chairProducts.length - 3)) {
-    //    item = {
-    //     styles: {
-    //       transform: `translateX(-${(product.clientWidth + 20) * count}px)`
-    //     }
-    //   }
-    //   setSlider(item)
-    // }
-    // else {
-    //   console.log(count);
-    // }
   }
 
   const handleClickPrev = () => {
@@ -94,6 +81,8 @@ function Home() {
       theme: "light",
     });
   }
+
+ 
   
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -126,12 +115,7 @@ function Home() {
         </div>
         <Banner2 />
         <Introduce />
-        <div className='home-backgroundImg'>
-            <div>
-              <h1>Get Leatest Update By Subscribe 0ur Newslater Shop Now</h1>
-              <button className='button'>Shop Now</button>
-            </div>
-        </div>
+        <BannerToShop />
         <div className='home-product-room'>
             <h1>Leatest Blog</h1>
           <div>

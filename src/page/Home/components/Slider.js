@@ -1,7 +1,8 @@
 import React from 'react';
 import Carousel from 'react-bootstrap/Carousel';
 import Banner from './Banner';
-import Banner2 from './Banner2';
+import Banner2 from './BannerProduct';
+import BannerToShop from './BannerToShop';
 import '../home.scss'
 
 
@@ -17,12 +18,7 @@ function Slider() {
         </Carousel.Item>
 
         <Carousel.Item>
-          <div className='home-backgroundImg'>
-              <div>
-                <h1>Get Leatest Update By Subscribe 0ur Newslater Shop Now</h1>
-                <button className='button'>Shop Now</button>
-              </div>
-          </div>
+          <BannerToShop />
         </Carousel.Item>
       </Carousel>
     );
