@@ -77,6 +77,13 @@
     }
 }
 
+.loading-detail {
+    display: flex;
+    justify-content: center;
+    margin: 30px;
+    height: 200px;
+}
+
 @media only screen and (max-width: 1024px) {
     .detail-body {
         display: flex;

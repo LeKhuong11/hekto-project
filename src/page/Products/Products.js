@@ -17,6 +17,18 @@ import './product.scss'
   const data = useSelector(state => state.data)
   const [product, setProduct] = useState(data.data);
 
+  useEffect(() => {
+    fetch("https://api-products-gamma.vercel.app/api/products", {
+            method: "get",
+            headers: {
+                "Content-Type": "application/json"
+            }
+        })
+        .then(res => res.json())
+        .then(res => {
+            console.log(res);
+        })
+  }, [])
   //feature search
   useEffect(() => {
     if(search.length > 0){
